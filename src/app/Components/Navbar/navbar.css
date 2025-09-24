@@ -1,0 +1,166 @@
+/* ---------- Top Navbar ---------- */
+.TopNavbarContainer .TopNavbar{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:10px 20px;
+}
+.navtext{
+    margin-bottom: 0px;
+}
+.TopNavLeftSec{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size:12px;
+}
+.TopNavRightSec{
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    align-items: center;
+}
+.PagesSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    margin-top:10px;
+}
+.PayOnlineBtn{
+    padding:10px 15px;
+    margin-right:10px;
+    font-size:12px;
+    border:none;
+    background-color: lightcoral;
+    color:#fff;
+    border-radius:4px;
+    cursor: pointer;
+}
+
+/* ---------- Bottom Navbar ---------- */
+.BottomNavbar{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:10px 30px;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    background-color: #fff;
+}
+
+.navbar-logo{
+    height:50px;
+    object-fit: contain;
+}
+
+/* Middle Dropdown */
+.BottomNavMid .dropdown-section{
+    display: flex;
+    align-items: center;
+    margin:0;
+    flex-wrap: wrap;
+}
+.BottomNavMid .dropdown{
+    font-size:14px;
+    font-weight:500;
+    cursor: pointer;
+    position: relative;
+    margin-right: 15px;
+}
+.BottomNavMid .dropdown:hover{
+    color: lightcoral;
+}
+
+/* Right Icons */
+.BottomNavRight .nav-icon{
+    font-size:22px;
+    cursor:pointer;
+    transition: color 0.3s ease;
+}
+.BottomNavRight .nav-icon:hover{
+    color: lightcoral;
+}
+
+/* Dropdown Menu */
+.BottomNavMid .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 150px;
+    padding: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+.BottomNavMid .dropdown-menu li {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.BottomNavMid .dropdown-menu li:hover {
+    background-color: lightcoral;
+    color: #fff;
+}
+.BottomNavMid .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ---------- Mobile Styles ---------- */
+.mobileMenuIcon{
+    display:none;
+    cursor:pointer;
+}
+
+@media(max-width: 991px){
+     .TopNavRightSec{
+        display: none;
+     }
+    .TopNavbar{
+        display: none;
+     }
+    .BottomNavMid{
+        display:none;
+        width:100%;
+    }
+    .BottomNavMid.show-mobile-menu{
+        display:block;
+        margin-top:10px;
+    }
+    .BottomNavMid .dropdown-section{
+        flex-direction: column;
+    }
+    .BottomNavMid .dropdown{
+        margin:0;
+        margin-bottom:5px;
+    }
+    .BottomNavRight{
+        margin-top:10px;
+        display:flex;
+        gap:15px;
+    }
+    .mobileMenuIcon{
+        display:block;
+    }
+}
+
+@media(max-width: 575px){
+    .TopNavbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .TopNavLeftSec, .TopNavRightSec{
+        flex-direction: column;
+        align-items: flex-start;
+        gap:5px;
+    }
+    .PagesSection{
+        flex-direction: column;
+        gap:5px;
+    }
+}
