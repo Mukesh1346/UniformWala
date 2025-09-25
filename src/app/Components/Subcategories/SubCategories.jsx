@@ -1,3 +1,4 @@
+        "use client"
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import CarouselItem from "react-bootstrap/CarouselItem";  // Import Item separately
@@ -7,11 +8,13 @@ import pic3 from '@/Assets/Images/receptionist.jpg'
 import pic4 from '@/Assets/Images/Corporate.jpg'
 import pic5 from '@/Assets/Images/security.png'
 import pic6 from '@/Assets/Images/salon.avif'
+import { useRouter } from "next/navigation";
 
 import "./subcategory.css";
 import Image from "next/image";
 
 export default function SubCategory() {
+  const router = useRouter();
   const categories = [
     {
       id: 1,
@@ -54,8 +57,42 @@ export default function SubCategory() {
       images: [
         pic3, pic4, pic1, pic2
       ]
+    },
+    {
+      id: 7,
+      title: "School Uniforms",
+      images: [
+        pic3, pic4, pic1, pic2
+      ]
+    },
+    {
+      id: 8,
+      title: "School Uniforms",
+      images: [
+        pic3, pic4, pic1, pic2
+      ]
+    },
+    {
+      id: 9,
+      title: "School Uniforms",
+      images: [
+        pic3, pic4, pic1, pic2
+      ]
+    },
+    {
+      id: 10,
+      title: "School Uniforms",
+      images: [
+        pic3, pic4, pic1, pic2
+      ]
     }
   ];
+
+
+  const handleCategoryClick = (title) => {
+    // redirect to subcategory page
+    router.push(`/products`);
+  };
 
   return (
     <>
@@ -67,12 +104,15 @@ export default function SubCategory() {
         <div className="row g-4">
           {categories.map((cat) => (
             <div key={cat.id} className="col-md-2 col-sm-6">
-              <div className="category-card shadow">
+              <div className="sub-category-card shadow"  
+               onClick={() => handleCategoryClick(cat.title)}
+
+              >
                 <Carousel interval={2000} indicators={false}>
                   {cat.images.map((img, index) => (
                     <CarouselItem key={index}>
                       <Image
-                        className="d-block w-100 category-img"
+                        className="d-block w-100 sub-category-img"
                         src={img}
                         alt={`${cat.title}-${index}`}
                       />
@@ -80,8 +120,8 @@ export default function SubCategory() {
                   ))}
                 </Carousel>
 
-                <div className="category-content text-center p-3">
-                  <h5 className="categorytitle">{cat.title}</h5>
+                <div className="sub-category-content text-center p-3">
+                  <h5 className="sub-categorytitle">{cat.title}</h5>
                   <p className="truncate1 ">Explore our latest collection of {cat.title}.</p>
                 </div>
               </div>

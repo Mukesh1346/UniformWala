@@ -24,6 +24,10 @@ export default function BestSellerProduct() {
     { id: 2, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
     { id: 3, defaultImg: pic4, hoverImg: pic5, productName: "Summer Beach Dress", price: 1799, rating: 4.3 },
     { id: 4, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
+    { id: 5, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
+    { id: 6, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
+    { id: 7, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
+    { id: 8, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
   ];
 
 
@@ -34,8 +38,8 @@ export default function BestSellerProduct() {
 
       {/* Best Sellers Section */}
       <div className="container midsec">
-        <p>CHECK OUT</p>
-        <b>BEST SELLERS</b>
+        {/* <p>CHECK OUT</p> */}
+        <b>ALL PRODUCTS</b>
       </div>
 
       {/* Product Cards Grid */}

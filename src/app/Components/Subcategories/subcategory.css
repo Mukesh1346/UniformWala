@@ -1,19 +1,19 @@
-.category-card {
+.sub-category-card {
     border-radius: 12px;
     overflow: hidden;
     background: #fff;
     transition: transform 0.3s ease;
   }
   
-  .category-card:hover {
+  .sub-category-card:hover {
     transform: translateY(-5px);
   }
   
-  .category-img {
+  .sub-category-img {
     height: 120px;
     object-fit: cover;
   }
-  .categorytitle{
+  .sub-categorytitle{
     font-size: 14px;
   }
   .truncate1 {
@@ -22,16 +22,16 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .category-content {
+  .sub-category-content {
     background: #f8f9fa;
   }
   
-  .category-content h5 {
+  .sub-category-content h5 {
     font-weight: 600;
     margin-bottom: 5px;
   }
   
-  .category-content p {
+  .sub-category-content p {
     font-size: 14px;
     color: #666;
     margin: 0;
