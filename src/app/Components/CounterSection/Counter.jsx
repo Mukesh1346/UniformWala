@@ -20,7 +20,7 @@ const counters = [
   },
   {
     id: 3,
-    icon: <FaDownload className="text-success" />,
+    icon: <FaDownload className="text-dark" />,
     number: 1000,
     label: "Downloads",
     bg: "box-pink",

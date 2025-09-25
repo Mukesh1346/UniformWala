@@ -9,10 +9,9 @@ import pic4 from '@/Assets/Images/Corporate.jpg'
 import pic5 from '@/Assets/Images/security.png'
 import pic6 from '@/Assets/Images/salon.avif'
 import { useRouter } from "next/navigation";
-import Image from 'next/image';
 
 
-export default function BestSellerProduct() {
+export default function RelatedProduct() {
   const router = useRouter();
 
   const [hoveredStates, setHoveredStates] = useState({});
@@ -42,7 +41,7 @@ export default function BestSellerProduct() {
 
   const handleCategoryClick = (title) => {
     // redirect to subcategory page
-    router.push(`/product/${encodeURIComponent(title)}`);
+    // router.push(`/product/${encodeURIComponent(title)}`);
   };
 
 
@@ -53,34 +52,34 @@ export default function BestSellerProduct() {
       {/* Best Sellers Section */}
       <div className="container midsec">
         {/* <p>CHECK OUT</p> */}
-        <b>ALL PRODUCTS</b>
+        <b>RELATED PRODUCTS</b>
       </div>
 
       {/* Product Cards Grid */}
-      <div className="product-container">
+      <div className="related-product-container">
         {products.map(({ id, defaultImg, hoverImg, productName, price, rating }) => (
-          <div className="product-card" key={id} 
+          <div className="related-product-card" key={id} 
           onClick={() => handleCategoryClick(productName)}
           >
             <motion.img
               src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
               alt={productName}
-              className="product-image"
+              className="related-product-image"
               onMouseEnter={() => toggleHover(id, true)}
               onMouseLeave={() => toggleHover(id, false)}
               animate={{ scale: hoveredStates[id] ? 1.05 : 1 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             />
 
-            <div className="product-info">
-              <p className="product-name">{productName}</p>
-              <div className="product-rating">
+            <div className="related-product-info">
+              <p className="related-product-name">{productName}</p>
+              <div className="related-product-rating">
                 {Array.from({ length: 5 }, (_, i) => (
                   <span key={i} className={i < Math.round(rating) ? "star filled" : "star"}>★</span>
                 ))}
                 <span className="rating-number">({rating})</span>
               </div>
-              <p className="product-price">₹{price}</p>
+              <p className="related-product-price">₹{price}</p>
             </div>
           </div>
         ))}
@@ -100,10 +99,10 @@ export default function BestSellerProduct() {
       <div className="container">
         <div className="row">
           <div className="col-md-7 h-75 sec1">
-            <Image src={pic1} className="sec1img" alt="Model Image" />
+            <img src="/assets/img/modal7.webp" className="sec1img" alt="Model Image" />
           </div>
           <div className="col-md-5  h-75 sec2">
-            <Image src={pic3} className="img-fluid modalPic" alt="Product Image" />
+            <img src="/assets/img/item5.webp" className="img-fluid modalPic" alt="Product Image" />
             <p className="mt-3">WAVY AFFAIR TIE & DYE CO-ORD SET</p>
             <div className="buttonsec text-start">
               <div className="text-warning">★★★★★ <span className="text-muted">1 review</span></div>

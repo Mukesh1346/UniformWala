@@ -10,6 +10,10 @@
     border-radius: 10px;
 }
 
+.buttonoverlay{
+    background-color: #aa3b38;
+    color:white;
+}
 .hero-overlay {
     position: absolute;
     top: 60%;

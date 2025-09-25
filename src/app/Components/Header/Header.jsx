@@ -50,7 +50,7 @@ const Header = () => {
           <div className="hero-overlay p-4">
             <h1>{hero.title}</h1>
             <p>{hero.subtitle}</p>
-            <Button variant="primary" href={hero.buttonLink} onClick={handleShow}  >{hero.buttonText}</Button>
+            <Button variant="" className="buttonoverlay" href={hero.buttonLink} onClick={handleShow}  >{hero.buttonText}</Button>
           </div>
         </div>
 

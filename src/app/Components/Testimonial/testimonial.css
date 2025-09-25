@@ -1,5 +1,5 @@
 .testimonial-section {
-     background-color: #1f2a44; 
+     background-color:  #aa3b38; 
     padding: 60px 20px;
     text-align: center;
   }
@@ -50,13 +50,13 @@
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #007bff;
+    border: 2px solid  #aa3b38;
   }
   
   .testimonial-name {
     font-size: 1rem;
     font-weight: 600;
-    color: #007bff;
+    color:  #aa3b38;
     margin-bottom: 0;
   }
   

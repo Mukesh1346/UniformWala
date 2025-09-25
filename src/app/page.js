@@ -7,6 +7,7 @@ import Category from "./Components/Categories/Categories";
 import BestSellerProduct from "./Components/BestSellerProduct/BestSellerProduct";
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Banner from "./Components/Banner/Banner";
+import ServicesSection from "./Components/Services/Services";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
      <CounterSection/>
      <Tranding/>
      <Testimonial/>
+     <ServicesSection/>
    </>
   );
 }
