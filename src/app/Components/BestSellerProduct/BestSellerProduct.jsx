@@ -8,9 +8,11 @@ import pic3 from '@/Assets/Images/receptionist.jpg'
 import pic4 from '@/Assets/Images/Corporate.jpg'
 import pic5 from '@/Assets/Images/security.png'
 import pic6 from '@/Assets/Images/salon.avif'
+import { useRouter } from "next/navigation";
 
 
 export default function BestSellerProduct() {
+  const router = useRouter();
 
   const [hoveredStates, setHoveredStates] = useState({});
 
@@ -19,17 +21,28 @@ export default function BestSellerProduct() {
   };
 
   const products = [
-    { id: 0, defaultImg: pic1, hoverImg: pic2, productName: "Valentina Co-ord Set", price: 1299, rating: 4.5 },
+    { id: 0, defaultImg: pic1, hoverImg: pic5, productName: "Valentina Co-ord Set", price: 1299, rating: 4.5 },
     { id: 1, defaultImg: pic2, hoverImg: pic3, productName: "Elegant Floral Dress", price: 1599, rating: 4.2 },
     { id: 2, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
     { id: 3, defaultImg: pic4, hoverImg: pic5, productName: "Summer Beach Dress", price: 1799, rating: 4.3 },
     { id: 4, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
-    { id: 5, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
-    { id: 6, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
-    { id: 7, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
-    { id: 8, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 899, rating: 4.8 },
+    { id: 5, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 1899, rating: 4.8 },
+    { id: 6, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 1299, rating: 4.8 },
+    { id: 7, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 1399, rating: 4.8 },
+    { id: 8, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 1699, rating: 4.8 },
+    { id: 9, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
+    { id: 10, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
+    { id: 11, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
+    { id:12, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
+    { id: 13, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
+
   ];
 
+
+  const handleCategoryClick = (title) => {
+    // redirect to subcategory page
+    router.push(`/product/${encodeURIComponent(title)}`);
+  };
 
 
   return (
@@ -45,7 +58,9 @@ export default function BestSellerProduct() {
       {/* Product Cards Grid */}
       <div className="product-container">
         {products.map(({ id, defaultImg, hoverImg, productName, price, rating }) => (
-          <div className="product-card" key={id}>
+          <div className="product-card" key={id} 
+          onClick={() => handleCategoryClick(productName)}
+          >
             <motion.img
               src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
               alt={productName}
