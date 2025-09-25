@@ -1,0 +1,46 @@
+.trandUniformMainSec{
+    margin:40px 0 ;
+}
+.uniform-row{
+    
+}
+.UniformCard{
+    border:1px solid gray;
+    height:280px;
+    padding:5px;
+}
+
+.ProductImg{
+    height: 160px;
+    margin: 5px;
+    width:175px;
+}
+
+.detailSec h3{
+   
+    text-align: center;
+    font-size: 16px;
+
+}
+
+.truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;   /* 👈 Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+.detailSec p{
+    text-align: center;
+    font-size: 12px;
+    
+
+}
+.icons{
+    display: flex;
+    gap:12px;
+    text-align: center;
+    justify-content: center;
+}
+
+

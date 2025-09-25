@@ -1,11 +1,23 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Header from "./Components/Header/Header";
+import CounterSection from "./Components/CounterSection/Counter";
+import Tranding from "./Components/TrandingProducts/Tranding";
+import Category from "./Components/Categories/Categories";
+import BestSellerProduct from "./Components/BestSellerProduct/BestSellerProduct";
+import Testimonial from "./Components/Testimonial/Testimonial";
+import Banner from "./Components/Banner/Banner";
 
 export default function Home() {
   return (
    <>
      <Header/>
+    <Category/>
+    {/* <BestSellerProduct/> */}
+    <Banner/>
+     <CounterSection/>
+     <Tranding/>
+     <Testimonial/>
    </>
   );
 }

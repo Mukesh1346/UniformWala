@@ -1,15 +1,20 @@
-            "use client"
+"use client"
 import React, { useState, useEffect } from "react";
 import pic1 from '@/Assets/Images/Banner1.jpeg'
 import pic2 from '@/Assets/Images/Banner2.jpg'
 import pic3 from '@/Assets/Images/slide1.jpg'
 import pic4 from '@/Assets/Images/slide2.jpg'
-import { Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HeroCarousel.css';
 import Image from "next/image";
+import { Modal, Button } from "react-bootstrap";
 
 const Header = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   // Left section - static background
   const hero = {
     image: pic1,
@@ -45,9 +50,47 @@ const Header = () => {
           <div className="hero-overlay p-4">
             <h1>{hero.title}</h1>
             <p>{hero.subtitle}</p>
-            <Button variant="primary" href={hero.buttonLink}>{hero.buttonText}</Button>
+            <Button variant="primary" href={hero.buttonLink} onClick={handleShow}  >{hero.buttonText}</Button>
           </div>
         </div>
+
+
+        <Modal show={show} onHide={handleClose} centered >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Fill the Form
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <div className="formSec mb-3">
+                <label htmlFor=""> Name *</label>
+                <input type="text" className="form-control" />
+              </div>
+              {/* <div className="formSec mb-3">
+                  <label htmlFor=""> Company Name *</label>
+                  <input type="text" className="form-control" />
+                 </div> */}
+
+
+              <div className="formSec mb-3">
+                <label htmlFor="">Email *</label>
+                <input type="email" className="form-control" />
+              </div>
+
+              <div className="formSec mb-3">
+                <label htmlFor="">Message *</label>
+                <textarea className="form-control"></textarea>
+              </div>
+            </form>
+
+
+          </Modal.Body>
+
+
+        </Modal>
+
+
 
         {/* Right Section */}
         <div className="col-md-4">
