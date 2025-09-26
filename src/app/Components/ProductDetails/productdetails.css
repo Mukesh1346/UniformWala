@@ -3,9 +3,13 @@
   }
   
   .main-image img {
-    width: 100%;
+    width: 90%;
     max-height: 450px;
     object-fit: cover;
+  }
+  .inputQuatity{
+     width: 70%;
+     padding:10px;
   }
   
   .thumbnail-container img {
@@ -46,8 +50,28 @@
     border: 2px solid #ddd;
     transition: all 0.3s ease;
   }
+
+  .StaticDetails{
+    display: grid;
+    justify-content: center;
+    padding-top:8px;
+    color:white;
+    background-color: brown;
+
+  }
   
   .color-options .color-circle:hover {
     border-color: #000;
   }
-  
+
+  .productBtn{
+    padding:10px 50px;
+    border:none;
+    background-color: brown;
+    color:white;
+  }
+  .Themetext{
+    background-color: brown;
+    padding:10px;
+    color:white;
+  }

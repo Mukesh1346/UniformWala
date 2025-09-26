@@ -80,9 +80,10 @@ export default function Navbar() {
 
                 <div className="BottomNavRight">
                     <IoSearchOutline className="nav-icon me-3" />
-                    <IoPersonOutline className="nav-icon me-3" />
-                    <IoHeartOutline className="nav-icon me-3" />
-                    <IoCartOutline className="nav-icon" />
+                    
+                   <a href="/signup"> <IoPersonOutline className="nav-icon me-3" /></a>
+                   <a href="/wishlist"> <IoHeartOutline className="nav-icon me-3" /></a>
+                    <a href="/cart"><IoCartOutline className="nav-icon" /></a>
                 </div>
             </div>
         </>

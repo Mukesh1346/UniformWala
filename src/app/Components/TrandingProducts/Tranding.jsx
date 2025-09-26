@@ -1,15 +1,23 @@
 import Image from 'next/image'
 import React from 'react'
-import pic1 from '@/Assets/Images/salon.avif'
-import pic2 from '@/Assets/Images/doctor.jpg'
-import pic3 from '@/Assets/Images/receptionist.jpg'
-import pic4 from '@/Assets/Images/Corporate.jpg'
+// import pic1 from '@/Assets/Images/salon.avif'
+// import pic2 from '@/Assets/Images/doctor.jpg'
+// import pic3 from '@/Assets/Images/receptionist.jpg'
+// import pic4 from '@/Assets/Images/Corporate.jpg'
+// import pic5 from '@/Assets/Images/security.png'
+// import pic6 from '@/Assets/Images/salon.avif'
+import pic1 from '@/Assets/Images/item.jpg'
+import pic2 from '@/Assets/Images/item2.jpg'
+import pic3 from '@/Assets/Images/item1.jpg'
+import pic4 from '@/Assets/Images/background1.jpg'
 import pic5 from '@/Assets/Images/security.png'
-import pic6 from '@/Assets/Images/salon.avif'
-import { FaInstagram } from "react-icons/fa6";
-import { FiYoutube } from "react-icons/fi";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import pic6 from '@/Assets/Images/item.jpg'
+
+
+// import { FaInstagram } from "react-icons/fa6";
+// import { FiYoutube } from "react-icons/fi";
+// import { FaFacebookSquare } from "react-icons/fa";
+// import { FaTwitter } from "react-icons/fa";
 
 import './topUniform.css'
 
@@ -35,7 +43,7 @@ export default function Tranding() {
    <>
    <div className='trandUniformMainSec'>
      <div className='text-center mb-5 '>
-        <h2>Top Tranding Products </h2>
+        <h2 className='tradingHeading'>Top Tranding Products </h2>
      </div>
     <div className="container">
         <div className="row uniform-row">
@@ -46,9 +54,9 @@ export default function Tranding() {
                     <div className='detailSec'>
                         <h3 className='title text-dark'>{item.title}</h3>
                         <p className='truncate'>{item.subtitle}</p>
-                        <div className='icons'>
+                        {/* <div className='icons'>
                         <FaInstagram  className='fs-5'/> < FiYoutube className='fs-5'/> < FaFacebookSquare  className='fs-5'/> <FaTwitter className='fs-5'/>
-                        </div>
+                        </div> */}
                     </div>
                   </div>
               </div>
