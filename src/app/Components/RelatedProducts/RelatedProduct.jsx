@@ -9,6 +9,7 @@ import pic4 from '@/Assets/Images/Corporate.jpg'
 import pic5 from '@/Assets/Images/security.png'
 import pic6 from '@/Assets/Images/salon.avif'
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 
 
 export default function RelatedProduct() {
@@ -41,7 +42,7 @@ export default function RelatedProduct() {
 
   const handleCategoryClick = (title) => {
     // redirect to subcategory page
-    // router.push(`/product/${encodeURIComponent(title)}`);
+    router.push(`/product/${encodeURIComponent(title)}`);
   };
 
 
@@ -99,10 +100,10 @@ export default function RelatedProduct() {
       <div className="container">
         <div className="row">
           <div className="col-md-7 h-75 sec1">
-            <img src="/assets/img/modal7.webp" className="sec1img" alt="Model Image" />
+            <Image src={pic1} className="sec1img" alt="Model Image" />
           </div>
           <div className="col-md-5  h-75 sec2">
-            <img src="/assets/img/item5.webp" className="img-fluid modalPic" alt="Product Image" />
+            <Image src={pic2} className="img-fluid modalPic" alt="Product Image" />
             <p className="mt-3">WAVY AFFAIR TIE & DYE CO-ORD SET</p>
             <div className="buttonsec text-start">
               <div className="text-warning">★★★★★ <span className="text-muted">1 review</span></div>

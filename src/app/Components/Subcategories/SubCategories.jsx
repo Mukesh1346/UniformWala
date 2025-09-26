@@ -25,13 +25,14 @@ export default function SubCategory() {
     { id: 6, title: "Security Uniforms", images: [pic3, pic4, pic1, pic2] },
     { id: 7, title: "Sports Wear", images: [pic6, pic1, pic2, pic3] },
     { id: 8, title: "Hospital Wear", images: [pic2, pic5, pic6, pic4] },
-    { id: 9, title: "Reception Wear", images: [pic3, pic4, pic1, pic2] },
+    { id: 9, title: "Reception Wear", images: [pic3, pic4, pic1, pic2] },   
     { id: 10, title: "Salon Wear", images: [pic1, pic6, pic5, pic2] },
   ];
 
   const handleCategoryClick = (title) => {
     // redirect to products page
     // router.push(`/products/${encodeURIComponent(title)}`);
+    router.push(`/products`);
   };
 
   return (
@@ -73,7 +74,7 @@ function HoverSubCategoryCard({ cat, handleCategoryClick }) {
         onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
         controls={false} // no arrows
         indicators={false} // no dots
-        interval={hover ? 2000 : null} // autoplay only on hover
+        interval={hover ? 1000 : null} // autoplay only on hover
         pause={false} // don't pause internally
       >
         {cat.images.map((img, index) => (

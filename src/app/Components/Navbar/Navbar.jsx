@@ -4,6 +4,7 @@ import { IoLogoTwitter, IoCartOutline, IoHeartOutline, IoPersonOutline, IoSearch
 import './navbar.css'
 import logo from '@/Assets/Images/logo.jpg'
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navbar() {
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -53,7 +54,8 @@ export default function Navbar() {
             {/* ----------- Bottom Navbar ----------- */}
             <div className="BottomNavbar">
                 <div className="BottomNavLeft">
-                    <Image src={logo} alt="Logo" className="navbar-logo" />
+                    <Link href="/"> <Image src={logo} alt="Logo" className="navbar-logo" />
+                    </Link>
                 </div>
 
                 {/* Hamburger icon for mobile */}

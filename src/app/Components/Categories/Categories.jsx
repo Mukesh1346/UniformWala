@@ -66,7 +66,7 @@ function HoverCarouselCard({ cat, handleCategoryClick }) {
         onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
         controls={false} // no arrows
         indicators={false} // no dots
-        interval={hover ? 2000 : null} // autoplay only when hovered
+        interval={hover ? 1000 : null} // autoplay only when hovered
         pause={false} // don’t pause on hover (we control it ourselves)
       >
         {cat.images.map((img, index) => (
