@@ -48,7 +48,7 @@ export default function Tranding() {
     <div className="container">
         <div className="row uniform-row">
            {products.map((item,index)=>(
-              <div className="col-md-2 topTrandingCol" key={index}>
+              <div className="col-md-2 col-6 topTrandingCol" key={index}>
                   <div className='UniformCard'>
                     <div className='d-flex justify-content-center'>
                     <Image src={item.image} alt={item.title} className='ProductImg'/>

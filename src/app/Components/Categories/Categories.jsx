@@ -37,7 +37,7 @@ export default function Category() {
 
       <div className="row g-4">
         {categories.map((cat) => (
-          <div key={cat.id} className="col-md-2 col-sm-6">
+          <div key={cat.id} className="col-6 col-md-2">
             <HoverCarouselCard
               cat={cat}
               handleCategoryClick={handleCategoryClick}

@@ -72,7 +72,7 @@ export default function Login() {
             </form>
 
             <p className="signup-link">
-              Don't have an account?{" "}
+              Do not have an account?{" "}
               <span onClick={() => router.push("/signup")}>Sign Up</span>
             </p>
           </div>

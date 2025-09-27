@@ -44,7 +44,7 @@ export default function SubCategory() {
       <div className="container my-5">
         <div className="row g-4">
           {categories.map((cat) => (
-            <div key={cat.id} className="col-md-2 col-sm-6">
+            <div key={cat.id} className="col-6 col-md-2">
               <HoverSubCategoryCard
                 cat={cat}
                 handleCategoryClick={handleCategoryClick}
