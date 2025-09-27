@@ -139,3 +139,30 @@
     color: #e74c3c;
 }
 
+@media (max-width: 768px){
+    .sec1img {
+        height: 79%;
+        width: 55%;
+        margin-left: 23%;
+      }
+    .sec2{
+      text-align: center;
+    }
+    .viewbtnSec{
+        text-align: center;
+    }
+    .buttonsec{
+        
+        text-align: center;
+    }
+    .text-warning{
+        text-align: center;
+    }
+    .buttonsec p{
+        margin-bottom: 5px !important;
+        text-align: center;
+    }
+    .sec2 p{
+        margin:0px !important;
+    }
+}

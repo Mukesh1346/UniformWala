@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import "../signup/auth.css";
-import pic1 from '@/Assets/Images/background2.jpg'
+import pic1 from '@/Assets/Images/Background2.jpg'
 import Image from "next/image";
 
 export default function Login() {

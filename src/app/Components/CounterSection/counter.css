@@ -82,3 +82,28 @@
   padding: 20px; /* content padding */
   color: #fff; /* text color */
 }
+
+
+
+@media (max-width:768px){
+  .counter-heading{
+    text-align: center;
+    font-size: 30px;
+}
+
+.counter-subtext{
+  text-align: justify;
+}
+
+.box-purple {
+  padding: 5px;
+}
+.counter-box {
+  padding: 5px;
+}
+
+.counter-main {
+  padding:30px 0 ;
+}
+
+}

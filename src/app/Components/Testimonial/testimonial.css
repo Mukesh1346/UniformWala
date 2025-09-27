@@ -88,5 +88,30 @@
       flex-direction: column;
       gap: 10px;
     }
+
+    .testimonial-section {
+      margin-top: 30px;
+      padding: 10px 0px;
+      text-align: center;
+  }
+
+  .testimonial-title {
+    font-size: 25px;
+    color: #1a1a1a;
+    margin: 20px;
+    font-weight: 600;
+}
+
+.testimonial-review {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.carousel-indicators [data-bs-target] {
+  display: none;
+}
+
   }
   

@@ -43,4 +43,24 @@
     justify-content: center;
 }
 
+@media (max-width: 768px){
+    .trandUniformMainSec {
+        margin: 10px 0;
+    }
+    .ProductImg {
+        height: 200px;
+        margin: 5px;
+        width: 180px;
+    }
 
+    .UniformCard {
+        width: 70%;
+        border: 1px solid gray;
+        height: 280px;
+        padding: 5px;
+    }
+    .topTrandingCol{
+        display: flex;
+        justify-content: center;
+    }
+}

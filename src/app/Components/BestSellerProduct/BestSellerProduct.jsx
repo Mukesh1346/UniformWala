@@ -106,9 +106,11 @@ export default function BestSellerProduct() {
             <Image src={pic3} className="img-fluid modalPic" alt="Product Image" />
             <p className="mt-3">WAVY AFFAIR TIE & DYE CO-ORD SET</p>
             <div className="buttonsec text-start">
-              <div className="text-warning">★★★★★ <span className="text-muted">1 review</span></div>
+              <div className="starsSec text-warning">★★★★★ <span className="text-muted">1 review</span></div>
               <p><strong>₹2,990</strong></p>
-              <button className="btn viewbutton">VIEW BEST SELLERS</button>
+             <div className='buttonPortion'>
+             <button className="btn viewbutton">VIEW BEST SELLERS</button>
+             </div>
             </div>
           </div>
         </div>

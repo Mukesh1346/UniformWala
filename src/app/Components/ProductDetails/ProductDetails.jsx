@@ -40,13 +40,13 @@ const ProductDetails = () => {
 
 
 
-const handleCheckbox = (e)=>{
-  setShow(e.target.checked)
+  const handleCheckbox = (e) => {
+    setShow(e.target.checked)
 
-}
+  }
 
-const handleShow = ()=> setPopUp(true)
-const handleClose = ()=> setPopUp(false)
+  const handleShow = () => setPopUp(true)
+  const handleClose = () => setPopUp(false)
 
 
   return (
@@ -131,29 +131,29 @@ const handleClose = ()=> setPopUp(false)
               <p className="mb-0"> Tips For Best Quality Embroidery</p>
             </div>
           </div>
-            {/* Modal  */}
+          {/* Modal  */}
 
           <Modal show={popup} onHide={handleClose} centered size="lg">
-        <Modal.Body className="text-center">
-          <Image
-            src={popupImg}
-            alt="big"
-            className="img-fluid rounded"
-          />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="" className="productBtn" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+            <Modal.Body className="text-center">
+              <Image
+                src={popupImg}
+                alt="big"
+                className="img-fluid rounded"
+              />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="" className="productBtn" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
 
           <div>
             {show && (
               <div>
                 <div className="d-grid gap-2 my-3">
                   <label htmlFor="">Embroidery Logo File *</label>
-                  <input type="file" className="form-control w-50"  />
+                  <input type="file" className="form-control w-50" />
                 </div>
 
                 <div>
@@ -188,41 +188,41 @@ const handleClose = ()=> setPopUp(false)
 
           <hr />
 
-          <div>
+          <div className="shareSec">
             <b>share it</b>
-            <div className=" d-flex gap-3 my-2">
+            <div className=" iconSection d-flex gap-3 my-2">
               <FaInstagram className="fs-3" /><FaFacebookSquare className="fs-3" /> <FaTwitter className="fs-3" /> <IoLogoYoutube className="fs-3" /><FaLinkedin className="fs-3" />
 
             </div>
           </div>
 
 
-          
+
         </div>
 
 
       </div>
-      <div>
-        <b> Black Formal Blazer For Men</b>
-        
-<br />
-        
-<p>
-This blend of Polyester Viscose fabric is comfortable to wear due to breathable yarns. Uniform Bucket Range of MALE'S Blazers are made up of fine quality fabric and export quality stitching that will give you a smart look. It is ideal for corporate, office wear, workwear, etc.
-</p>
+      <div className="productEveDetails">
+        <b className="boldText "> Black Formal Blazer For Men</b>
+
+        <br />
+
+        <p>
+          This blend of Polyester Viscose fabric is comfortable to wear due to breathable yarns. Uniform Bucket Range of MALE'S Blazers are made up of fine quality fabric and export quality stitching that will give you a smart look. It is ideal for corporate, office wear, workwear, etc.
+        </p>
 
 
-<h3 className="text-center Themetext">PRODUCT DETAILS</h3> 
-<h4> Notched Collar With Flap Pockets</h4>
+        <h3 className="text-center Themetext">PRODUCT DETAILS</h3>
+        <h4> Notched Collar With Flap Pockets</h4>
 
-<p><b>COLOR -</b>  Black</p>
-<p><b>STYLE -</b> FIT- Regular</p>
-<p><b>FABRIC-</b> Polyester Viscose Twill</p>
-<p><b> COMPOSITION-</b> 67% Polyester 33% Viscose Twill</p>
-<p><b>BLAZER LENGTH- </b> Approx 28 inches | Medium Size</p>
-<p><b>SLEEVE LENGTH-</b> Approx 24 inches | Medium Size</p>
-<p><b> FAB - </b>   SUMO-PV-SUI-TW</p>
-<p><b> WASH CARE- </b>  Do not bleach</p>
+        <p><b>COLOR -</b>  Black</p>
+        <p><b>STYLE -</b> FIT- Regular</p>
+        <p><b>FABRIC-</b> Polyester Viscose Twill</p>
+        <p><b> COMPOSITION-</b> 67% Polyester 33% Viscose Twill</p>
+        <p><b>BLAZER LENGTH- </b> Approx 28 inches | Medium Size</p>
+        <p><b>SLEEVE LENGTH-</b> Approx 24 inches | Medium Size</p>
+        <p><b> FAB - </b>   SUMO-PV-SUI-TW</p>
+        <p><b> WASH CARE- </b>  Do not bleach</p>
 
 
       </div>

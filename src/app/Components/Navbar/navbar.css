@@ -74,6 +74,17 @@
     color: lightcoral;
 }
 
+.dropdown-link{
+    text-decoration: none;
+    color:brown;
+    text-align: center;
+}
+
+.AnchorLink{
+    text-decoration: none;
+    color:brown;
+    text-align: center;
+}
 /* Right Icons */
 .BottomNavRight .nav-icon{
     font-size:22px;
@@ -147,6 +158,11 @@
     .mobileMenuIcon{
         display:block;
     }
+
+}
+
+@media (max-width:768px){
+    
 }
 
 @media(max-width: 575px){

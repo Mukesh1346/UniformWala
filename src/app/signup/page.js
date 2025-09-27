@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./auth.css";
 import Image from "next/image";
-import pic1 from '@/Assets/Images/background1.jpg'
+import pic1 from '@/Assets/Images/Background1.jpg'
 
 export default function Signup() {
   const router = useRouter();

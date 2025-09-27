@@ -108,7 +108,9 @@ export default function RelatedProduct() {
             <div className="buttonsec text-start">
               <div className="text-warning">★★★★★ <span className="text-muted">1 review</span></div>
               <p><strong>₹2,990</strong></p>
-              <button className="btn viewbutton">VIEW BEST SELLERS</button>
+             <div className='viewbtnSec'>
+             <button className="btn viewbutton">VIEW BEST SELLERS</button>
+             </div>
             </div>
           </div>
         </div>

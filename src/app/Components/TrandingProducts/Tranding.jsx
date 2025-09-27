@@ -9,7 +9,7 @@ import React from 'react'
 import pic1 from '@/Assets/Images/item.jpg'
 import pic2 from '@/Assets/Images/item2.jpg'
 import pic3 from '@/Assets/Images/item1.jpg'
-import pic4 from '@/Assets/Images/background1.jpg'
+import pic4 from '@/Assets/Images/Background1.jpg'
 import pic5 from '@/Assets/Images/security.png'
 import pic6 from '@/Assets/Images/item.jpg'
 
@@ -48,9 +48,11 @@ export default function Tranding() {
     <div className="container">
         <div className="row uniform-row">
            {products.map((item,index)=>(
-              <div className="col-md-2" key={index}>
+              <div className="col-md-2 topTrandingCol" key={index}>
                   <div className='UniformCard'>
+                    <div className='d-flex justify-content-center'>
                     <Image src={item.image} alt={item.title} className='ProductImg'/>
+                    </div>
                     <div className='detailSec'>
                         <h3 className='title text-dark'>{item.title}</h3>
                         <p className='truncate'>{item.subtitle}</p>

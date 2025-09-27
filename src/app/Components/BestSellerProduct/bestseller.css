@@ -139,3 +139,32 @@
     color: #e74c3c;
 }
 
+@media (max-width: 768px){
+    .product-card {
+        width: 300px;
+    }
+
+    .sec1img {
+        height: 79%;
+        width: 55%;
+    }
+
+    .modalPic {
+        height: 300px !important;
+        padding:20px;
+    }
+
+.buttonPortion{
+    text-align: center !important;
+}
+
+.buttonsec p{
+    text-align: center;
+}
+.starsSec{
+    text-align: center;
+}
+.sec2 p{
+    text-align: center;
+}
+}

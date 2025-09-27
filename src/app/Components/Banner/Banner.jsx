@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import banner from '@/Assets/Images/Background.jpg'
+import './banner.css'
 
 export default function Banner() {
   return (
