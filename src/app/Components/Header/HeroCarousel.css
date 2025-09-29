@@ -3,6 +3,25 @@
     padding:0px;
 }
 
+.style-form{
+    padding:10px;
+    border-radius: 30px;
+    border:1px double brown;
+    width: 100%;
+}
+.SubmitEnquiry{
+    width: 100%;
+    background-color: brown;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.SubmitEnquiry:hover{
+   color:white;
+    background-color: rgb(123, 45, 45);
+   
+}
 .hero-bg {
     width: 100%;
     height: 100%;

@@ -8,15 +8,19 @@ import BestSellerProduct from "./Components/BestSellerProduct/BestSellerProduct"
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Banner from "./Components/Banner/Banner";
 import ServicesSection from "./Components/Services/Services";
+import BrandCarousel from "./Components/BrandCarousel/BrandCarousel";
+import BestProduct from "./Components/BestProduct/BestProduct";
 
 export default function Home() {
   return (
    <>
      <Header/>
     <Category/>
+    <BrandCarousel/>
     {/* <BestSellerProduct/> */}
-    <Banner/>
      <CounterSection/>
+    {/* <Banner/> */}
+      <BestProduct/>
      <Tranding/>
      <Testimonial/>
      <ServicesSection/>

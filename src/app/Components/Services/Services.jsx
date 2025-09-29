@@ -62,7 +62,7 @@ const ServicesSection = () => {
         </div>
         
         <div className="view-all-container">
-          <a href="#" className="btn-view-all">
+          <a href="/products" className="btn-view-all">
             View All Manufacturing Services →
           </a>
         </div>

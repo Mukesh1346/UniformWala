@@ -19,6 +19,10 @@ const ProductDetails = () => {
   const [mainImage, setMainImage] = useState(images[0]);
   const [show, setShow] = useState(false)
   const [popup, setPopUp] = useState(false)
+  const [enquiryShow, setEnquiryShow] = useState(false);
+const handleEnquiryOpen = () => setEnquiryShow(true);
+const handleEnquiryClose = () => setEnquiryShow(false);
+  
 
 
   const prodcutfeature = [
@@ -183,10 +187,46 @@ const ProductDetails = () => {
           <div className="d-flex gap-3">
             <button className="productBtn">Wishlist</button>
             <button className="productBtn">Add To Cart</button>
-            <button className="productBtn">Enquiry Now</button>
+            <button className="productBtn" onClick={handleEnquiryOpen}>Enquiry Now</button>
           </div>
 
           <hr />
+
+
+
+
+          {/* Enquiry Modal */}
+<Modal show={enquiryShow} onHide={handleEnquiryClose} centered>
+  <Modal.Header closeButton>
+    <Modal.Title>Product Enquiry</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <form>
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">Name</label>
+        <input type="text" className="form-control" id="name" placeholder="Your Name" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label">Email</label>
+        <input type="email" className="form-control" id="email" placeholder="Your Email" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="phone" className="form-label">Phone</label>
+        <input type="text" className="form-control" id="phone" placeholder="Your Phone" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="message" className="form-label">Message</label>
+        <textarea className="form-control" id="message" rows={3} placeholder="Your Message"></textarea>
+      </div>
+    </form>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={handleEnquiryClose}>Close</Button>
+    <Button variant="primary">Submit</Button>
+  </Modal.Footer>
+</Modal>
+
+          
 
           <div className="shareSec">
             <b>share it</b>
@@ -203,6 +243,7 @@ const ProductDetails = () => {
 
       </div>
       <div className="productEveDetails">
+        <h3 className="text-center Themetext">PRODUCT DETAILS</h3>
         <b className="boldText "> Black Formal Blazer For Men</b>
 
         <br />
@@ -212,7 +253,6 @@ const ProductDetails = () => {
         </p>
 
 
-        <h3 className="text-center Themetext">PRODUCT DETAILS</h3>
         <h4> Notched Collar With Flap Pockets</h4>
 
         <p><b>COLOR -</b>  Black</p>

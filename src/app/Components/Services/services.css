@@ -66,6 +66,7 @@
 }
 
 .service-content p {
+  font-size: 14px;
   color: white;
   margin-bottom: 20px;
   line-height: 1.6;
@@ -89,6 +90,7 @@
 }
 
 .btn-view-all {
+  font-size: 14px !important;
   display: inline-block;
   background-color: #aa3b38;
   color: white;

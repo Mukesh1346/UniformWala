@@ -48,7 +48,7 @@
   }
   
   .btn-request {
-    background-color: #ff7f7f;
+    background-color:brown;
     color: #fff;
     border: none;
     padding: 12px 25px;
@@ -58,6 +58,6 @@
   }
   
   .btn-request:hover {
-    background-color: #ff5757;
+    background-color: rgb(141, 56, 56);
   }
   
