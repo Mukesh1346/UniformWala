@@ -9,9 +9,18 @@
 .category-card:hover {
   transform: translateY(-5px);
 }
+.Category-Heading{
+  margin: 50px 0px;
+  
+ }
+ .Category-Heading h3{
+  font-weight: 900;
+  font-size: 22px;
+
+ }
 
 .category-img {
-  height: 120px;
+  height: 230px;
   object-fit: cover;
 }
 
@@ -47,7 +56,10 @@
     margin-bottom: 15px;
   }
 
- 
+ .Category-Heading{
+  margin: 50px 0px;
+
+ }
 
   .categorytitle {
     font-size: 13px;

@@ -4,12 +4,19 @@ import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import pic1 from "@/Assets/Images/salon.avif";
-import pic2 from "@/Assets/Images/doctor.jpg";
-import pic3 from "@/Assets/Images/receptionist.jpg";
-import pic4 from "@/Assets/Images/Corporate.jpg";
-import pic5 from "@/Assets/Images/security.png";
-import pic6 from "@/Assets/Images/salon.avif";
+import pic1 from '@/Assets/Images/Slide.webp'
+import pic2 from '@/Assets/Images/Slide1.webp'
+import pic3 from '@/Assets/Images/Slide2.webp'
+import pic4 from '@/Assets/Images/Slide3.webp'
+import pic5 from '@/Assets/Images/Slide4.webp'
+import pic6 from '@/Assets/Images/Slide5.webp'
+
+// import pic1 from "@/Assets/Images/salon.avif";
+// import pic2 from "@/Assets/Images/doctor.jpg";
+// import pic3 from "@/Assets/Images/receptionist.jpg";
+// import pic4 from "@/Assets/Images/Corporate.jpg";
+// import pic5 from "@/Assets/Images/security.png";
+// import pic6 from "@/Assets/Images/salon.avif";
 
 import "./category.css";
 
@@ -31,7 +38,7 @@ export default function Category() {
 
   return (
     <div className="container my-5">
-      <div className="my-4 text-center">
+      <div className=" Category-Heading text-center">
         <h3>ALL CATEGORIES</h3>
       </div>
 

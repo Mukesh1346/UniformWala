@@ -27,26 +27,34 @@ const Footer = () => {
 
           {/* Products */}
           <div className="col-md-2 mb-4">
-            <h6 className="footer-title">Products</h6>
+            <h6 className="footer-title">Pages</h6>
             <ul className="list-unstyled">
-              <li><a href="#">All shirts</a></li>
-              <li><a href="#">Hoodies</a></li>
-              <li><a href="#">Crewneck</a></li>
-              <li><a href="#">Hats</a></li>
-              <li><a href="#">Tote bags</a></li>
-              <li><a href="#">See more</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/aboutus">About Us</a></li>
+              <li><a href="/contactus">Contact Us</a></li>
+              <li><a href="/login">Login </a></li>
+              <li><a href="/signup">Add to Cart</a></li>
             </ul>
           </div>
+
+        
+
+
+
+
+
+
 
           {/* Services */}
           <div className="col-md-2 mb-4">
             <h6 className="footer-title">Services</h6>
             <ul className="list-unstyled">
-              <li><a href="#">Embroidery</a></li>
-              <li><a href="#">Screen printing</a></li>
-              <li><a href="#">DTG printing</a></li>
-              <li><a href="#">Design Studio</a></li>
-              <li><a href="#">Design Templates</a></li>
+              <li><a href="#">  Corporate</a></li>
+              <li><a href="#">Hotel Aprons</a></li>
+              <li><a href="#">Spa & Salon</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Hospital</a></li>
+              <li><a href="#">Industrial</a></li>
             </ul>
           </div>
 
@@ -54,7 +62,7 @@ const Footer = () => {
           <div className="col-md-2 mb-4">
             <h6 className="footer-title">Help</h6>
             <ul className="list-unstyled">
-              <li><a href="#">Privacy policy</a></li>
+              <li><a href="/policy">Privacy policy</a></li>
               <li><a href="#">FAQ</a></li>
               <li><a href="#">Promo Codes</a></li>
               <li><a href="#">Design Review</a></li>

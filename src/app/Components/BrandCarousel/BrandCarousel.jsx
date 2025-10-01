@@ -21,8 +21,8 @@ export default function BrandCarousel() {
 
   return (
    <>
-      <div>
-        <h3 className="text-center">Trusted by Great Teams</h3>
+      <div className="BrandHeadingSec">
+        <h3 className="text-center"> TRUSTED BY GREAT TEAMS </h3>
       </div>
        <hr />
     <div className="brand-carousel-container">
@@ -45,13 +45,13 @@ export default function BrandCarousel() {
       </div>
     <hr />
       {/* Bottom carousel (right again) */}
-      <div className="carousel-row left">
+      {/* <div className="carousel-row left">
         <div className="carousel-track">
           {brands.concat(brands).map((src, i) => (
             <Image key={`bot-${i}`} src={src} alt="brand" />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
    
    </>

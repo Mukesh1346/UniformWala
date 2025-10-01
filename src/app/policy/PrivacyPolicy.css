@@ -1,0 +1,108 @@
+/* PrivacyPolicy.css */
+
+/* Page Background */
+.privacy-policy-page {
+    background: #fdf9f5; /* light beige background for contrast */
+    padding: 50px 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Card Container */
+  .privacy-policy-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px 30px;
+    max-width: 950px;
+    margin: auto;
+    box-shadow: 0 6px 18px rgba(92, 64, 51, 0.15);
+    border-top: 6px solid brown; /* Dark brown highlight */
+  }
+  
+  /* Headings */
+  .privacy-policy-card h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: brown; /* Deep brown */
+    text-align: center;
+  }
+  
+  .privacy-policy-card h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: brown; /* Medium brown */
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+  
+  /* Paragraphs */
+  .privacy-policy-card p {
+    color: #3e2c20;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+  
+  /* Custom List Styling */
+  .custom-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0 20px 0;
+  }
+  
+  .custom-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 10px;
+    color: #3e2c20;
+    font-size: 1rem;
+  }
+  
+  .custom-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: brown;
+    font-weight: bold;
+  }
+  
+  /* Divider */
+  .privacy-policy-card hr {
+    border: none;
+    border-top: 2px solid #e6d5c3;
+    margin: 20px 0;
+  }
+  
+  /* Responsive Typography */
+  @media (max-width: 992px) {
+    .privacy-policy-card {
+      padding: 30px 20px;
+    }
+  
+    .privacy-policy-card h1 {
+      font-size: 2rem;
+    }
+  
+    .privacy-policy-card h5 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .privacy-policy-page {
+      padding: 30px 10px;
+    }
+  
+    .privacy-policy-card {
+      padding: 20px 15px;
+    }
+  
+    .privacy-policy-card h1 {
+      font-size: 1.7rem;
+    }
+  
+    .privacy-policy-card p,
+    .custom-list li {
+      font-size: 0.95rem;
+    }
+  }
+  

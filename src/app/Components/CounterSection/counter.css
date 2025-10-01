@@ -88,7 +88,7 @@
 @media (max-width:768px){
   .counter-heading{
     text-align: center;
-    font-size: 30px;
+    font-size: 22px;
 }
 
 .counter-subtext{
@@ -103,7 +103,11 @@
 }
 
 .counter-main {
-  padding:30px 0 ;
+  padding:0px;
+}
+.counter-heading {
+  margin: 30px 0;
+  font-size: 22px;
 }
 
 }

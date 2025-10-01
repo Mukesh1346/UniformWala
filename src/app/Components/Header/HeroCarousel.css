@@ -17,6 +17,51 @@
     border-radius: 50px;
 }
 
+
+
+
+
+
+.buttonoverlay {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    border: 2px solid #616365 !important;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1; /* ensures text stays above ::before */
+}
+
+.buttonoverlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: brown;
+    transition: width 1s ease-in-out;
+    z-index: -1; /* sits behind text */
+}
+
+.buttonoverlay:hover::before {
+    width: 100%; /* expands smoothly */
+}
+
+.buttonoverlay:hover {
+    color: white !important;
+    border: 2px solid brown !important; /* matches background */
+}
+
+
+
+
+
+
 .SubmitEnquiry:hover{
    color:white;
     background-color: rgb(123, 45, 45);
@@ -29,10 +74,10 @@
     border-radius: 10px;
 }
 
-.buttonoverlay{
+/* .buttonoverlay{
     background-color: #aa3b38;
     color:white;
-}
+} */
 .hero-overlay {
     position: absolute;
     top: 60%;
@@ -97,11 +142,11 @@
   height:280px;
 }
 
-    .buttonoverlay {
+    /* .buttonoverlay {
         font-size: 12px;
         background-color: #aa3b38;
         color: white;
-    }
+    } */
 
 
     .right-carousel img {

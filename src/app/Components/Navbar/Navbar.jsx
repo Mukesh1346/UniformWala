@@ -170,7 +170,7 @@ export default function Navbar() {
               </li>
               |
               <li className="list-group-item me-3">
-                <Link className="AnchorLink" href="/aboutus">
+                <Link className="AnchorLink" href="/faq">
                   FAQ
                 </Link>
               </li>

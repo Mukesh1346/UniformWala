@@ -56,7 +56,7 @@ export default function CounterSection() {
         <div className="row align-items-center">
           {/* Left side text */}
           <div className="col-md-5 counterCol-5 text-white mb-4 mb-md-0">
-            <h2 className="counter-heading ">Uniform Vala</h2>
+            <h2 className="counter-heading ">UNIFORM VALA </h2>
             <p className="counter-subtext">
             Uniform Wala is a leading uniform manufacturer providing customized solutions for schools, hotels, healthcare, and corporate sectors. Our dedication to quality and timely delivery has made us the preferred choice for thousands of happy clients across India.
             </p>

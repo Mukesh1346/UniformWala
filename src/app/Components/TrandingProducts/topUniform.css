@@ -4,14 +4,14 @@
 
 .UniformCard{
     border:1px solid gray;
-    height:380px;
+    height:310px;
     padding:5px;
 }
 .tradingHeading{
   font-weight: 700;
 }
 .ProductImg{
-    height: 300px;
+    height: 230px;
     margin: 5px;
     width:180px;
 }
@@ -22,6 +22,42 @@
     font-size: 16px;
    
 }
+.See-MoreBtn {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: 400;
+    color: black;
+    background: transparent;
+    border: 2px solid #616365 !important;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1; /* ensures text stays above ::before */
+}
+
+.See-MoreBtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: brown;
+    transition: width 1s ease-in-out;
+    z-index: -1; /* sits behind text */
+}
+
+.See-MoreBtn:hover::before {
+    width: 100%; /* expands smoothly */
+}
+
+.See-MoreBtn:hover {
+    color: white !important;
+    border: 2px solid brown !important; /* matches background */
+}
+
+
 
 .truncate {
     display: -webkit-box;
@@ -50,7 +86,7 @@
     .ProductImg {
         height: 200px;
         margin: 5px;
-        width: 180px;
+        width: 160px;
     }
 
     .UniformCard {

@@ -6,13 +6,20 @@ import React from 'react'
 // import pic4 from '@/Assets/Images/Corporate.jpg'
 // import pic5 from '@/Assets/Images/security.png'
 // import pic6 from '@/Assets/Images/salon.avif'
-import pic1 from '@/Assets/Images/item.jpg'
-import pic2 from '@/Assets/Images/item2.jpg'
-import pic3 from '@/Assets/Images/item1.jpg'
-import pic4 from '@/Assets/Images/Background1.jpg'
-import pic5 from '@/Assets/Images/security.png'
-import pic6 from '@/Assets/Images/item.jpg'
+// import pic1 from '@/Assets/Images/item.jpg'
+// import pic2 from '@/Assets/Images/item2.jpg'
+// import pic3 from '@/Assets/Images/item1.jpg'
+// import pic4 from '@/Assets/Images/Background1.jpg'
+// import pic5 from '@/Assets/Images/security.png'
+// import pic6 from '@/Assets/Images/item.jpg'
 
+
+import pic1 from '@/Assets/Images/Slide.webp'
+import pic2 from '@/Assets/Images/Slide1.webp'
+import pic3 from '@/Assets/Images/Slide2.webp'
+import pic4 from '@/Assets/Images/Slide3.webp'
+import pic5 from '@/Assets/Images/Slide4.webp'
+import pic6 from '@/Assets/Images/Slide5.webp'
 
 // import { FaInstagram } from "react-icons/fa6";
 // import { FiYoutube } from "react-icons/fi";
@@ -20,6 +27,7 @@ import pic6 from '@/Assets/Images/item.jpg'
 // import { FaTwitter } from "react-icons/fa";
 
 import './topUniform.css'
+import Link from 'next/link'
 
 export default function Tranding() {
 
@@ -49,6 +57,7 @@ export default function Tranding() {
         <div className="row uniform-row">
            {products.map((item,index)=>(
               <div className="col-md-2 col-6 topTrandingCol" key={index}>
+                  <Link href="/top-tranding" className='text-decoration-none text-dark'>
                   <div className='UniformCard'>
                     <div className='d-flex justify-content-center'>
                     <Image src={item.image} alt={item.title} className='ProductImg'/>
@@ -61,11 +70,17 @@ export default function Tranding() {
                         </div> */}
                     </div>
                   </div>
+                  </Link>
               </div>
            ))
 
            }
         </div>
+            <div className='text-center my-4'>
+             <Link href="/top-tranding">
+             <button className='See-MoreBtn'> See More </button>
+             </Link>
+            </div>
     </div>
 
    </div>
