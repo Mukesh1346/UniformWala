@@ -87,7 +87,7 @@ export default function ContactUs() {
     </div>
 
     <div className='container-fluid'>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3498.6243092123127!2d77.08410077496043!3d28.730771579613716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d07440faeeedd%3A0x7fd3b4b030819bdf!2sDigi%20India%20Solutions!5e0!3m2!1sen!2sin!4v1758959123379!5m2!1sen!2sin" width="1550" height="450" style={{border:"0;"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3498.6243092123127!2d77.08410077496043!3d28.730771579613716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d07440faeeedd%3A0x7fd3b4b030819bdf!2sDigi%20India%20Solutions!5e0!3m2!1sen!2sin!4v1758959123379!5m2!1sen!2sin" width="1550" height="450" style={{border:"0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </div>
    </div>
     

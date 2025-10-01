@@ -36,9 +36,7 @@ export default function Navbar() {
     }
   };
 
-  const closeMobileDropdown = () => setActiveDropdown(null);
-  
-  const closeMobileMenu = () => {
+  const closeAllMenus = () => {
     setMobileMenu(false);
     setActiveDropdown(null);
   };
@@ -46,6 +44,13 @@ export default function Navbar() {
   const toggleMobileMenu = () => {
     setMobileMenu(!mobileMenu);
     setActiveDropdown(null);
+  };
+
+  // Handle dropdown item click in mobile
+  const handleDropdownItemClick = () => {
+    if (isMobile) {
+      closeAllMenus();
+    }
   };
 
   const menuItems = [
@@ -177,25 +182,25 @@ export default function Navbar() {
       {/* Bottom Navbar */}
       <div className="BottomNavbar">
         <div className="BottomNavLeft">
-          <Link href="/" onClick={closeMobileMenu}>
+          <Link href="/" onClick={closeAllMenus}>
             <Image src={logo} alt="Logo" className="navbar-logo" />
           </Link>
         </div>
 
         {/* Hamburger icon */}
-        <div
-          className="mobileMenuIcon"
-          onClick={toggleMobileMenu}
-        >
+        <div className="mobileMenuIcon" onClick={toggleMobileMenu}>
           {mobileMenu ? <IoCloseOutline size={28} /> : <IoMenuOutline size={28} />}
         </div>
 
         {/* Middle menu */}
         <div className={`BottomNavMid ${mobileMenu ? "show-mobile-menu" : ""}`}>
           {isMobile && (
-            <button className="mobile-menu-close" onClick={closeMobileMenu}>
-              <IoCloseOutline />
-            </button>
+            <div className="mobile-menu-header">
+              <h3>Menu</h3>
+              <button className="mobile-menu-close" onClick={closeAllMenus}>
+                {/* <IoCloseOutline size={24} /> */}
+              </button>
+            </div>
           )}
           <ul className="list-unstyled d-flex dropdown-section flex-wrap">
             {menuItems.map((menu, idx) => (
@@ -208,7 +213,7 @@ export default function Navbar() {
                   className="dropdown-title"
                   onClick={() => handleDropdownClick(idx)}
                 >
-                  {menu.title} {isMobile && "▾"}
+                  {menu.title} {isMobile && <span className="dropdown-arrow">▾</span>}
                 </div>
 
                 {/* Desktop hover */}
@@ -220,7 +225,7 @@ export default function Navbar() {
                           <Link
                             href={sub.href}
                             className="dropdown-link"
-                            onClick={closeMobileMenu}
+                            onClick={closeAllMenus}
                           >
                             {sub.label}
                           </Link>
@@ -231,34 +236,38 @@ export default function Navbar() {
                 )}
 
                 {/* Mobile dropdown */}
-                {isMobile && (
-                  <ul className="dropdown-menu">
-                    <button
-                      className="dropdown-close"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        closeMobileDropdown();
-                      }}
-                    >
-                      <IoCloseOutline />
-                    </button>
-                    <div className="dropdown-menu-grid">
-                      {menu.subMenu.map((sub, subIdx) => (
-                        <li key={subIdx}>
+                {isMobile && activeDropdown === idx && (
+                  <div className="mobile-dropdown-overlay">
+                    <div className="mobile-dropdown-content">
+                      <div className="mobile-dropdown-header">
+                        <button
+                          className="back-button"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          ← Back
+                        </button>
+                        <h4>{menu.title}</h4>
+                        <button
+                          className="close-dropdown"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          {/* <IoCloseOutline size={20} /> */}
+                        </button>
+                      </div>
+                      <div className="mobile-dropdown-items">
+                        {menu.subMenu.map((sub, subIdx) => (
                           <Link
+                            key={subIdx}
                             href={sub.href}
-                            className="dropdown-link"
-                            onClick={() => {
-                              closeMobileDropdown();
-                              closeMobileMenu();
-                            }}
+                            className="mobile-dropdown-item"
+                            onClick={closeAllMenus}
                           >
                             {sub.label}
                           </Link>
-                        </li>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </ul>
+                  </div>
                 )}
               </li>
             ))}
@@ -283,23 +292,23 @@ export default function Navbar() {
       {/* Mobile Bottom Navbar */}
       <div className="MobileBottomNav">
         <div className="d-flex align-items-center justify-content-around">
-          <Link href="/" className="mobile-nav-icon" onClick={closeMobileMenu}>
+          <Link href="/" className="mobile-nav-icon" onClick={closeAllMenus}>
             <IoHomeOutline size={24} />
             <span>Home</span>
           </Link>
-          <Link href="/wishlist" className="mobile-nav-icon" onClick={closeMobileMenu}>
+          <Link href="/wishlist" className="mobile-nav-icon" onClick={closeAllMenus}>
             <IoHeartOutline size={24} />
             <span>Wishlist</span>
           </Link>
-          <Link href="/cart" className="mobile-nav-icon" onClick={closeMobileMenu}>
+          <Link href="/cart" className="mobile-nav-icon" onClick={closeAllMenus}>
             <IoCartOutline size={24} />
             <span>Cart</span>
           </Link>
-          <Link href="/products" className="mobile-nav-icon" onClick={closeMobileMenu}>
+          <Link href="/products" className="mobile-nav-icon" onClick={closeAllMenus}>
             <IoGridOutline size={24} />
             <span>All Products</span>
           </Link>
-          <Link href="/signup" className="mobile-nav-icon" onClick={closeMobileMenu}>
+          <Link href="/signup" className="mobile-nav-icon" onClick={closeAllMenus}>
             <CgProfile size={24} />
             <span>Profile</span>
           </Link>

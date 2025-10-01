@@ -106,7 +106,7 @@
 .BottomNavMid .dropdown-menu {
     display: none;
     position: absolute;
-    top: 80%;
+    top: 100%;
     left: 0;
     background-color: #fff;
     width: 100vw;
@@ -154,30 +154,103 @@
     display: block;
 }
 
-/* Close button for mobile dropdown */
-.dropdown-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-    z-index: 1001;
-    padding: 5px;
-}
-
-.dropdown-close:hover {
-    background-color: #f0f0f0;
-    border-radius: 50%;
-}
-
 /* ---------- Mobile Styles ---------- */
 .mobileMenuIcon{
     display:none;
     cursor:pointer;
 }
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.mobile-menu-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+}
+
+/* Mobile Dropdown Overlay */
+.mobile-dropdown-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 1005;
+    overflow-y: auto;
+}
+
+.mobile-dropdown-content {
+    padding: 20px;
+}
+
+.mobile-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.mobile-dropdown-header h4 {
+    margin: 0;
+    color: #333;
+    flex: 1;
+    text-align: center;
+}
+
+.back-button, .close-dropdown {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    padding: 8px 12px;
+}
+
+.mobile-dropdown-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mobile-dropdown-item {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.mobile-dropdown-item:hover {
+    background-color: lightcoral;
+    color: white;
+}
+
+.dropdown-arrow {
+    margin-left: 5px;
+}
+
+
 
 /* ---------- Mobile Dropdown (Sidebar Style) ---------- */
 @media (max-width: 991px) {
@@ -203,7 +276,7 @@
         height: 100vh;
         background: white;
         z-index: 1002;
-        padding: 80px 20px 20px;
+        padding: 20px 0;
         overflow-y: auto;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
@@ -223,7 +296,7 @@
     .BottomNavMid .dropdown{
         margin:0;
         width: 100%;
-        padding: 15px;
+        padding: 15px 20px;
         border-bottom: 1px solid #eee;
         font-size: 16px;
         position: relative;
@@ -234,6 +307,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 10px 0;
     }
     
     .BottomNavRight{
@@ -242,69 +316,13 @@
         gap:15px;
     }
 
-    /* Mobile dropdown sidebar */
+    /* Hide desktop dropdown on mobile */
     .BottomNavMid .dropdown-menu {
-        position: fixed;
-        top: 0;
-        left: 100%;
-        width: 85vw;
-        height: 100vh;
-        max-width: 320px;
-        padding: 60px 20px 20px 20px;
-        border-radius: 0;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-        transition: left 0.3s ease;
-        margin-left: 0;
-        z-index: 1004;
-        display: none;
-        background: white;
+        display: none !important;
     }
 
-    .BottomNavMid .dropdown.active .dropdown-menu {
-        left: 15vw;
-        display: block;
-    }
-
-    /* Single column for mobile */
-    .dropdown-menu-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .BottomNavMid .dropdown-menu li {
-        width: 100%;
-    }
-
-    /* Hide desktop hover behavior on mobile */
     .BottomNavMid .dropdown:hover .dropdown-menu {
-        display: none;
-    }
-
-    .dropdown-link {
-        text-align: left;
-        padding: 12px 15px;
-        border-bottom: 1px solid #f0f0f0;
-        border-radius: 4px;
-        display: block;
-        width: 100%;
-    }
-
-    .dropdown-link:hover {
-        background-color: lightcoral;
-        color: #fff;
-    }
-    
-    /* Close button for main mobile menu */
-    .mobile-menu-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: none;
-        border: none;
-        font-size: 28px;
-        cursor: pointer;
-        color: #333;
-        z-index: 1003;
+        display: none !important;
     }
 }
 
@@ -324,6 +342,24 @@
 
     .MobileBottomNav {
         display: none;
+    }
+
+    .mobile-dropdown-header {
+        padding: 0px 0;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 15px;
+    }
+
+
+    .mobile-dropdown-header h4 {
+        color:brown;
+    }
+    .mobile-menu-header {
+        padding: 0px;
+        padding-left: 40%;
+    }
+    .mobile-menu-header h3 {
+        color:brown;
     }
 }
 
@@ -360,8 +396,7 @@
         flex-direction: column;
         gap:5px;
     }
-    
-    .MobileBottomNav{
+     .MobileBottomNav{
         display: flex !important;
         position: fixed;
         bottom: 0;
@@ -373,14 +408,12 @@
         z-index: 999;
         box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
     }
-    
     .MobileBottomNav .d-flex {
         display: flex;
         align-items: center;
         justify-content: space-around;
         width: 100%;
     }
-    
     .mobile-nav-icon {
         display: flex;
         flex-direction: column;
@@ -389,20 +422,16 @@
         color: #444;
         text-decoration: none;
     }
-    
     .mobile-nav-icon span {
         margin-top: 2px;
     }
-    
     .mobile-nav-icon:hover {
         color: lightcoral;
     }
-    
-    .BottomNavbar .BottomNavRight {
+       .BottomNavbar .BottomNavRight {
         display: none;
     }
-
-    .dropdown-menu-grid {
+   .dropdown-menu-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -411,10 +440,9 @@
 .BottomNavMid .dropdown {
     position: static !important;
 }
-
 .BottomNavMid .dropdown-menu {
     left: 0 !important;
     right: 0 !important;
     width: 100vw !important;
     margin-left: 0 !important;
-}   
+}

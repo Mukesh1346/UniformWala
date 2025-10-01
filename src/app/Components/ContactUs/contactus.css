@@ -11,7 +11,7 @@
     font-family: 'Georgia', serif;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #672d1f;
+    color: brown;
   }
   
   .contact-form input,
@@ -23,7 +23,7 @@
   }
   
   .btn-send {
-    background-color: #a84d2e;
+    background-color: brown;
     color: #fff;
     border: none;
     padding: 8px 24px;
