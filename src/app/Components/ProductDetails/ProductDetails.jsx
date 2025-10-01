@@ -223,7 +223,7 @@ const handleEnquiryClose = () => setEnquiryShow(false);
   <Modal.Footer>
     <Button variant="secondary" onClick={handleEnquiryClose}>Close</Button>
     <Button variant="primary">Submit</Button>
-  </Modal.Footer>
+  </Modal.Footer> 
 </Modal>
 
           

@@ -1,10 +1,10 @@
 /* General Reset */
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-  }
+  } */
   
   .signup-page {
     min-height: 100vh;
@@ -127,5 +127,50 @@
     .signup-image-section {
       display: none;
     }
+  }
+
+
+  @media (max-width : 768px){
+    .form-box h1 {
+      font-size: 1.5rem;
+      color:brown;
+    }
+    .subtitle {
+      font-size: 12px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .signup-form-section {
+      padding: 15px 15px;
+  }
+
+  .auth-input {
+    font-size: 13px;
+  
+    padding: 13px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.signup-page {
+  min-height: 75vh;
+}
+
+.signup-btn {
+  padding: 10px;
+  font-size: 12px;
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 12px;
+  color: #555;
+}
   }
   
