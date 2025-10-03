@@ -10,9 +10,28 @@ import pic5 from '@/Assets/Images/security.png'
 import pic6 from '@/Assets/Images/salon.avif'
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
+import { useAppContext } from '@/context/appContext';
 
 
 export default function RelatedProduct() {
+  const { state, dispatch, ACTIONS } = useAppContext();
+
+  const toggleCart = (product) => {
+    dispatch({
+      type: ACTIONS.TOGGLE_CART_ITEM,
+      payload: {
+        id: product.id,
+        name: product.productName,
+        price: product.price,
+        size: "M",
+        quantity: 1,
+      }
+    })
+  }
+
+  const isInCart = (product) =>
+    state.cart.some((item) => item.id === product.id && item.size === "M");
+
   const router = useRouter();
 
   const [hoveredStates, setHoveredStates] = useState({});
@@ -33,9 +52,9 @@ export default function RelatedProduct() {
     { id: 8, defaultImg: pic5, hoverImg: pic6, productName: "Classic White Shirt", price: 1699, rating: 4.8 },
     { id: 9, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
     { id: 10, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
-    { id: 11, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
-    { id:12, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
-    { id: 13, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 999, rating: 4.7 },
+    { id: 11, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 1999, rating: 4.7 },
+    { id: 12, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 2999, rating: 4.7 },
+    { id: 13, defaultImg: pic3, hoverImg: pic4, productName: "Casual Denim Jacket", price: 3999, rating: 4.7 },
 
   ];
 
@@ -59,8 +78,8 @@ export default function RelatedProduct() {
       {/* Product Cards Grid */}
       <div className="related-product-container">
         {products.map(({ id, defaultImg, hoverImg, productName, price, rating }) => (
-          <div className="related-product-card" key={id} 
-          onClick={() => handleCategoryClick(productName)}
+          <div className="related-product-card" key={id}
+            onClick={() => handleCategoryClick(productName)}
           >
             <motion.img
               src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
@@ -74,13 +93,25 @@ export default function RelatedProduct() {
 
             <div className="related-product-info">
               <p className="related-product-name">{productName}</p>
-              <div className="related-product-rating">
+              {/* <div className="related-product-rating">
                 {Array.from({ length: 5 }, (_, i) => (
                   <span key={i} className={i < Math.round(rating) ? "star filled" : "star"}>★</span>
                 ))}
                 <span className="rating-number">({rating})</span>
-              </div>
-              <p className="related-product-price">₹{price}</p>
+              </div> */}
+             <div className='d-flex justify-content-around align-items-center'>
+             <p className="related-product-price">₹{price}</p>
+
+<button
+  className={`addToCartBtn `}
+  onClick={(e) => {
+    e.stopPropagation(); // prevent card click redirect
+    toggleCart({ id, productName, price });
+  }}
+>
+  {isInCart({ id, productName, price }) ? "Remove from Cart" : "Add to Cart"}
+</button>
+             </div>
             </div>
           </div>
         ))}
@@ -106,11 +137,11 @@ export default function RelatedProduct() {
             <Image src={pic2} className="img-fluid modalPic" alt="Product Image" />
             <p className="mt-3">WAVY AFFAIR TIE & DYE CO-ORD SET</p>
             <div className="buttonsec text-start">
-              <div className="text-warning">★★★★★ <span className="text-muted">1 review</span></div>
+              {/* <div className="text-warning">★★★★★ <span className="text-muted">1 review</span></div> */}
               <p><strong>₹2,990</strong></p>
-             <div className='viewbtnSec'>
-             <button className="btn viewbutton">VIEW BEST SELLERS</button>
-             </div>
+              <div className='viewbtnSec'>
+                <button className="btn viewbutton">VIEW BEST SELLERS</button>
+              </div>
             </div>
           </div>
         </div>

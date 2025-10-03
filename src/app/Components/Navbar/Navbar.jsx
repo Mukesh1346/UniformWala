@@ -16,11 +16,17 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "@/Assets/Images/logo.jpg";
 import "./navbar.css";
+import { useAppContext } from "@/context/appContext";
+
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const {state} = useAppContext()
+
+
+const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
 
   // Detect mobile width
   useEffect(() => {
@@ -283,9 +289,14 @@ export default function Navbar() {
           <Link href="/wishlist">
             <IoHeartOutline className="nav-icon me-3" />
           </Link>
-          <Link href="/cart">
-            <IoCartOutline className="nav-icon" />
-          </Link>
+          <Link href="/cart" className="text-decoration-none position-relative">
+      <IoCartOutline className="nav-icon" />
+      {totalItems > 0 && (
+        <sup className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {totalItems}
+        </sup>
+      )}
+    </Link>
         </div>
       </div>
 

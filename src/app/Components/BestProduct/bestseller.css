@@ -182,6 +182,7 @@
   }
   
 .enquiryBtn{
+    font-size: 13px;
   border: 1px solid brown;
   background: brown;
   color:white;
@@ -190,6 +191,7 @@
 }
 
 .addToCartBtn{
+    font-size: 13px;
     border: 1px solid brown;
     background: brown;
     color:white;

@@ -13,6 +13,7 @@ import popupImg from '@/Assets/Images/modal.jpg'
 import { FaInstagram, FaFacebookSquare, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { Modal, Button } from "react-bootstrap";
 import { IoLogoYoutube } from "react-icons/io";
+import { useAppContext } from "@/context/appContext";
 
 const ProductDetails = () => {
   const images = [pic1, pic2, pic3, pic4, pic5, pic6];
@@ -22,8 +23,33 @@ const ProductDetails = () => {
   const [enquiryShow, setEnquiryShow] = useState(false);
 const handleEnquiryOpen = () => setEnquiryShow(true);
 const handleEnquiryClose = () => setEnquiryShow(false);
+const {state,dispatch, ACTIONS} = useAppContext();
+
+
+
+const toggleCart = (product) =>{
+  dispatch({
+    type: ACTIONS.TOGGLE_CART_ITEM,
+    payload: {
+      id: product.id,
+      name: product.productName,
+      price:product.price,
+      size:"M",
+      quantity: 1,
+
+    }
+  })
+}
   
 
+const isInCart = (product) => state.cart.some((item)=> item.id === product.id && item.size === "M")
+
+const products = [
+  {id:1 , ProductName:"BLACK FORMAL BLAZER FOR MEN",price: "1,299.00",productCode:"UNB-MASK-02",fabricDescription:"Polyester Cotton",DispatchTime:"5-6 Working Days "}
+]
+
+
+const {id, productName,price} = products
 
   const prodcutfeature = [
     { id: 1, title: "SAMPLE", price: "$ 3759" },
@@ -186,7 +212,10 @@ const handleEnquiryClose = () => setEnquiryShow(false);
 
           <div className="d-flex gap-3">
             <button className="productBtn">Wishlist</button>
-            <button className="productBtn">Add To Cart</button>
+            <button className="productBtn" onClick={(e)=>{
+               e.stopPropagation();
+               toggleCart({id,productName, price});
+               }}>  {isInCart({id, productName, price}) ? "Remove from Cart" : "Add to Cart"}</button>
             <button className="productBtn" onClick={handleEnquiryOpen}>Enquiry Now</button>
           </div>
 

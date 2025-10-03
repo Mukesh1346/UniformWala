@@ -11,7 +11,7 @@
     padding: 12px 24px;
     font-size: 12px;
     font-weight: 400px;
-    color: #ff7010;
+    color: brown;
     /* Text always visible */
     background: transparent;
     /* No background initially */
@@ -21,6 +21,14 @@
     overflow: hidden;
 }
 
+.addToCartBtn {
+    background-color: brown;
+    color: white;
+    padding: 10px;
+    font-size: 13px;
+    border: none;
+}
+
 .viewbutton::before {
     content: "";
     position: absolute;
@@ -28,7 +36,7 @@
     left: 0;
     width: 0%;
     height: 100%;
-    background: #ff7010;
+    background: brown;
     /* Background appears on hover */
     transition: width 1s ease-in-out;
     z-index: -1;
@@ -80,7 +88,7 @@
     position: relative;
     overflow: hidden;
     width: 250px;
-    height: 420px;
+    height: 390px;
     border-radius: 10px;
     background: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -134,7 +142,8 @@
 }
 
 .related-product-price {
-    font-size: 18px;
+    font-size: 16px;
+    margin:3px;
     font-weight: bold;
     color: #e74c3c;
 }

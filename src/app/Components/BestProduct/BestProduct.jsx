@@ -10,19 +10,49 @@ import pic5 from "@/Assets/Images/security.png";
 import pic6 from "@/Assets/Images/salon.avif";
 import { useRouter } from "next/navigation";
 import { FaRegEye } from "react-icons/fa";
-import Image from "next/image";
-import Sidebar from "../Sidebar/Sidebar";
 import Link from "next/link";
+import { useAppContext } from "@/context/appContext";
 
 export default function BestProduct() {
   const router = useRouter();
   const [hoveredStates, setHoveredStates] = useState({});
   const [showEnquiry, setShowEnquiry] = useState(false);
   const [enquiryProduct, setEnquiryProduct] = useState("");
+  const { state, dispatch, ACTIONS } = useAppContext();
 
   const toggleHover = (id, isHovered) => {
     setHoveredStates((prev) => ({ ...prev, [id]: isHovered }));
   };
+
+
+  const addToCart = () => {
+    dispatch({
+      type: ACTIONS.ADD_TO_CART,
+      payload: {
+        id: products.id,
+        name: products.price,
+        quantity: 1,
+      }
+    })
+  }
+
+
+  const toggleCart = (product) => {
+    dispatch({
+      type: ACTIONS.TOGGLE_CART_ITEM,
+      payload: {
+        id: product.id,
+        name: product.productName,
+        price: product.price,
+        size: "M", // default size
+        quantity: 1,
+      },
+    });
+  };
+  const isInCart = (product) =>
+    state.cart.some((item) => item.id === product.id && item.size === "M");
+
+
 
   const products = [
     { id: 0, defaultImg: pic3, hoverImg: pic1, productName: "Spa & Tunics", price: 1299 },
@@ -34,11 +64,11 @@ export default function BestProduct() {
     { id: 6, defaultImg: pic3, hoverImg: pic1, productName: "Spa & Salon Pajamas", price: 1230 },
     { id: 7, defaultImg: pic4, hoverImg: pic2, productName: "Salon Apron", price: 1230 }
   ];
-  
 
-  const handleCategoryClick = (productName) => {
-    router.push(`/product/${encodeURIComponent(productName)}`);
-  };
+
+  // const handleCategoryClick = (productName) => {
+  //   router.push(`/product/${encodeURIComponent(productName)}`);
+  // };
 
   const handleEnquiryClick = (productName) => {
     setEnquiryProduct(productName);
@@ -64,57 +94,68 @@ export default function BestProduct() {
 
       <div className="container">
         <div className="row">
-         
+
           <div className="col-md-12">
-          <div className="Bestproduct-container">
-  {products.map(({ id, defaultImg, hoverImg, productName, price }) => (
-    <div className="Bestproduct-card" key={id}>
-      <Link href={`/product/${id}`} className="text-decoration-none">
-        <motion.img
-          src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
-          alt={productName}
-          className="Bestproduct-image"
-          onMouseEnter={() => toggleHover(id, true)}
-          onMouseLeave={() => toggleHover(id, false)}
-          animate={{ scale: hoveredStates[id] ? 1.05 : 1 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-        />
-      </Link>
+            <div className="Bestproduct-container">
+              {products.map(({ id, defaultImg, hoverImg, productName, price }) => (
+                <div className="Bestproduct-card" key={id}>
+                  <Link href={`/product/${id}`} className="text-decoration-none">
+                    <motion.img
+                      src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
+                      alt={productName}
+                      className="Bestproduct-image"
+                      onMouseEnter={() => toggleHover(id, true)}
+                      onMouseLeave={() => toggleHover(id, false)}
+                      animate={{ scale: hoveredStates[id] ? 1.05 : 1 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    />
+                  </Link>
 
-      <div className="Bestproduct-info">
-        <Link href={`/product/${id}`} className="text-decoration-none">
-          <p className="Bestproduct-name">{productName}</p>
-        </Link>
+                  <div className="Bestproduct-info">
+                    <Link href={`/product/${id}`} className="text-decoration-none">
+                      <p className="Bestproduct-name">{productName}</p>
+                    </Link>
 
-        <p className="Bestproduct-price">₹ {price}</p>
+                    <p className="Bestproduct-price">₹ {price}</p>
 
-        <div className="buttonPortion">
-          <button
-            className="enquiryBtn"
-            onClick={(e) => {
-              e.preventDefault(); // stop link
-              e.stopPropagation();
-              handleEnquiryClick(productName); // open popup form
-            }}
-          >
-            Enquiry
-          </button>
+                    <div className="buttonPortion">
+                      <button
+                        className="enquiryBtn"
+                        onClick={(e) => {
+                          e.preventDefault(); // stop link
+                          e.stopPropagation();
+                          handleEnquiryClick(productName); // open popup form
+                        }}
+                      >
+                        Enquiry
+                      </button>
+{/* 
+                      <button
+                        className="addToCartBtn"
+                        onClick={(e) => {
+                          e.preventDefault(); // stop link
+                          e.stopPropagation(); 
+                          addToCart()
+                        }}
+                      >
+                        Add to Cart <FaRegEye className="fs-5 ms-2" />
+                      </button> */}
 
-          <button
-            className="addToCartBtn"
-            onClick={(e) => {
-              e.preventDefault(); // stop link
-              e.stopPropagation();
-              handleCategoryClick(productName); // add to cart
-            }}
-          >
-            Add to Cart <FaRegEye className="fs-5 ms-2" />
-          </button>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+                      <button   
+                        onClick={(e) =>{
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleCart({id, productName, price});
+                        }}
+                        className={`addToCartBtn ${isInCart({id,productName, price}) ? "btn-danger" : "btn-outline-primary"}`}
+                      >
+                        {isInCart({id, productName, price}) ? "Remove from Cart" : "Add to Cart"}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
 
           </div>
         </div>
