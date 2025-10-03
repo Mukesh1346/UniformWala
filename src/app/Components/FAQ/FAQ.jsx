@@ -2,10 +2,14 @@
 
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JS for collapse
 import "./Faq.css"; // External CSS
 
-export default function FAQ() {
+export default function Faq() {
+  useEffect(() => {
+    // Import Bootstrap JS only in the browser
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+
   return (
     <main className="faq-section">
       <div className="container faq-container">
@@ -39,9 +43,9 @@ export default function FAQ() {
                 "Lorem ipsum dolor sit amet adipisicing ?",
                 "Lorem ipsum dolor sit amet adipisicing ?",
                 "Lorem ipsum dolor sit amet adipisicing ?",
-                "Lorem ipsum dolor sit amet adipisicing ?",   
-              ].map((question, index) => (          
-                <div className="accordion-item" key={index}>  
+                "Lorem ipsum dolor sit amet adipisicing ?",
+              ].map((question, index) => (
+                <div className="accordion-item" key={index}>
                   <h2 className="accordion-header" id={`heading${index}`}>
                     <button
                       className={`accordion-button ${index !== 0 ? "collapsed" : ""}`}
@@ -61,11 +65,12 @@ export default function FAQ() {
                     data-bs-parent="#faqAccordion"
                   >
                     <div className="accordion-body">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Details for FAQ {index + 1}.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Details for FAQ{" "}
+                      {index + 1}.
                     </div>
                   </div>
                 </div>
-              ))} 
+              ))}
             </div>
           </div>
         </div>

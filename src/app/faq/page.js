@@ -1,5 +1,6 @@
 import React from 'react'
-import FAQ from '../Components/FAQ/FAQ'
+import FAQ from '../Components/FAQ/Faq'
+
 
 
 export default function page() {

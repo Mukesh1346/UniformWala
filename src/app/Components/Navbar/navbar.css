@@ -106,7 +106,7 @@
 .BottomNavMid .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 80%;
     left: 0;
     background-color: #fff;
     width: 100vw;

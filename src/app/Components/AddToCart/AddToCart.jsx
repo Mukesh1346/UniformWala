@@ -141,10 +141,10 @@ export default function AddToCart() {
                           </div>
 
                           <div className='mt-3 mb-3'>
-                            <button className='btn btn-success w-25 me-2' onClick={() => handleRemove(product.id)}>
+                            <button className=' btnRemove w-25 me-2' onClick={() => handleRemove(product.id)}>
                               <MdDeleteSweep className='fs-3' /> Remove
                             </button>
-                            <button className='btn btn-success w-25 p-2'>Save for later</button>
+                            <button className='btnLater w-25 '>Save for later</button>
                           </div>
                         </div>
                       </div>

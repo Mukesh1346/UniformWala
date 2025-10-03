@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import "./PrivacyPolicy.css"; // External CSS file
+import "./PrivacyPolicy.css"; // External CSS
 
 export default function PrivacyPolicyPage() {
   return (
@@ -66,7 +66,7 @@ export default function PrivacyPolicyPage() {
             <li>Withdraw consent for data processing where applicable.</li>
           </ul>
 
-          <h5 className="mt-4">9. Children's Privacy</h5>
+          <h5 className="mt-4">9. Children&apos;s Privacy</h5>
           <p>
             Our services are not directed to individuals under the age of 13, and we do not knowingly collect data from children. If we learn that we have collected personal information from a child, we will delete it immediately.
           </p>
