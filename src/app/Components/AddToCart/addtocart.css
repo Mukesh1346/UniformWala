@@ -10,12 +10,27 @@
     color:rgb(255, 255, 255);
     border-radius: 10px;
 }
+
+.productName{
+  color:brown;
+  font-size: 14px;
+  text-align: center;
+}
+
+
 .cartRightSec{
 padding:50px;
 }
 .cartLeftAllSec{
     padding-top: 10px;
 }
+
+.productImage{
+  width: 120px;
+  height: 120px;
+}
+
+
 .cartBtn{
     padding: 8px 16px;
     color:white;
@@ -33,6 +48,11 @@ padding:50px;
   background-color: brown;
   padding:10px;
   color:white;
+}
+.buttonSection{
+  display:flex;
+ flex-direction: column;
+ gap: 12px;
 }
 
 .btnLater{
