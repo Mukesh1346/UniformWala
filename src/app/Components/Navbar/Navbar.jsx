@@ -143,7 +143,7 @@ const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
               <IoLogoTwitter className="fs-4 ms-2" />
               <a
                 href="tel:+919876543210"
-                className="text-decoration-none text-dark ms-2 navtext"
+                className="text-decoration-none text-light ms-2 navtext"
               >
                 +91 9218 008 549 |
               </a>
@@ -155,7 +155,7 @@ const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
           </div>
 
           <div className="TopNavRightSec">
-            <button className="PayOnlineBtn">Pay Online</button>
+            {/* <button className="PayOnlineBtn">Pay Online</button> */}
             <ul className="list-unstyled PagesSection d-flex">
               <li className="list-group-item me-3">
                 <Link className="AnchorLink" href="/aboutus">

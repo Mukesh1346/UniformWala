@@ -25,6 +25,7 @@ export default function BrandCarousel() {
         <h3 className="text-center"> TRUSTED BY GREAT TEAMS </h3>
       </div>
        <hr />
+    <div className="container " style={{border:"5px double gray", borderRadius:"30px"}}>
     <div className="brand-carousel-container">
       {/* Top carousel (left) */}
       <div className="carousel-row left">
@@ -43,7 +44,7 @@ export default function BrandCarousel() {
           ))}
         </div>
       </div>
-    <hr />
+   
       {/* Bottom carousel (right again) */}
       {/* <div className="carousel-row left">
         <div className="carousel-track">
@@ -53,7 +54,8 @@ export default function BrandCarousel() {
         </div>
       </div> */}
     </div>
-   
+    <hr />
+    </div>
    </>
   );
 }

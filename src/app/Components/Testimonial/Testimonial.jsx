@@ -34,7 +34,7 @@ export default function Testimonial() {
 
   return (
     <div className="testimonial-section">
-      <h2 className="testimonial-title text-light">What Our Clients Say</h2>
+      <h2 className="testimonial-title ">What Our Clients Say</h2>
       <div className="testimonial-row">
         {displayedTestimonials.map((t, i) => (
           <div className="testimonial-card" key={i}>

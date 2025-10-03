@@ -25,7 +25,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: #aa3b38;
+  /* background-color: #aa3b38; */
   border-radius: 2px;
 }
 
@@ -54,7 +54,7 @@
 .service-content {
 
   padding: 25px;
-  background-color: #aa3b38;
+  /* background-color: #aa3b38; */
   flex: 1;
 }
 
@@ -62,12 +62,12 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 15px;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .service-content p {
   font-size: 14px;
-  color: white;
+  color: rgb(0, 0, 0);
   margin-bottom: 20px;
   line-height: 1.6;
 }
@@ -92,14 +92,15 @@
 .btn-view-all {
   font-size: 14px !important;
   display: inline-block;
-  background-color: #aa3b38;
+  background-color: #264653;
   color: white;
   padding: 10px 25px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid #aa3b38;
+  transition: all 0.3s 
+ease;
+  border: 2px solid #6d6d6d;
 }
 
 .btn-view-all:hover {

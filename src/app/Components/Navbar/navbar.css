@@ -6,6 +6,14 @@
     align-items: center;
     padding:10px 20px;
 }
+
+.nav-icon{
+    color:#264653;
+}
+.TopNavbar{
+    color: white;
+    background: brown;
+}
 .navtext{
     margin-bottom: 0px;
 }
@@ -73,7 +81,7 @@
     padding: 10px 0;
 }
 .BottomNavMid .dropdown:hover{
-    color: lightcoral;
+    color:brown;
 }
 
 .dropdown-link{
@@ -85,10 +93,15 @@
     text-align: center;
 }
 
+    
+.dropdown-section{
+    gap:30px;
+}
+
 .AnchorLink{
     font-size: 14px;
     text-decoration: none;
-    color:brown;
+    color:white;
     text-align: center;
 }
 
@@ -99,7 +112,7 @@
     transition: color 0.3s ease;
 }
 .BottomNavRight .nav-icon:hover{
-    color: lightcoral;
+    color:brown;
 }
 
 /* ---------- Dropdown Menu (Desktop) ---------- */
@@ -144,7 +157,7 @@
 }
 
 .BottomNavMid .dropdown-menu li:hover .dropdown-link {
-    background-color: lightcoral;
+    background-color: #264653;
     color: #fff;
     border-radius: 4px;
     transform: translateY(-2px);
@@ -286,7 +299,7 @@
         display:block;
         transform: translateX(0);
     }
-    
+
     .BottomNavMid .dropdown-section{
         flex-direction: column;
         gap: 0;
