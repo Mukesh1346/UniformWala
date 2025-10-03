@@ -4,7 +4,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    padding:10px 20px;
+    padding:0px 20px;
 }
 
 .nav-icon{
@@ -16,6 +16,7 @@
 }
 .navtext{
     margin-bottom: 0px;
+    margin-top: 2px;
 }
 .TopNavLeftSec{
     display: flex;
