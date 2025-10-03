@@ -11,12 +11,33 @@ import pic6 from "@/Assets/Images/salon.avif";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Sidebar from "../Sidebar/Sidebar";
+import { useAppContext } from "@/context/appContext";
+import Link from "next/link";
 
 export default function BestSellerProduct() {
   const router = useRouter();
   const [hoveredStates, setHoveredStates] = useState({});
   const [showEnquiry, setShowEnquiry] = useState(false);
   const [enquiryProduct, setEnquiryProduct] = useState("");
+  const { state, dispatch, ACTIONS } = useAppContext();
+
+
+
+
+  const toggleCart = (product) => {
+    dispatch({
+      type: ACTIONS.TOGGLE_CART_ITEM,
+      payload: {
+        id: product.id,
+        name: product.productName,
+        price: product.price,
+        size: "M",
+        quantity: 1,
+      },
+    })
+  }
+
+  const isInCart = (product) => state.cart.some((item) => item.id === product.id && item.size === "M");
 
   const toggleHover = (id, isHovered) => {
     setHoveredStates((prev) => ({ ...prev, [id]: isHovered }));
@@ -36,7 +57,7 @@ export default function BestSellerProduct() {
     { id: 10, defaultImg: pic1, hoverImg: pic5, productName: "Spa & Salon Trousers", price: 1230 },
     { id: 11, defaultImg: pic2, hoverImg: pic6, productName: "Spa & Salon Tunics Tops", price: 1230 },
   ];
-  
+
 
   const handleCategoryClick = (productName) => {
     router.push(`/product/${encodeURIComponent(productName)}`);
@@ -58,6 +79,38 @@ export default function BestSellerProduct() {
     handleCloseEnquiry();
   };
 
+
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6
+
+  const LastProduct = currentPage * itemsPerPage;
+  const FirstProduct = LastProduct - itemsPerPage;
+
+
+  const currentProducts = products.slice(FirstProduct, LastProduct);
+
+
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+
+  const nextPage = () => {
+    if (currentPage < Math.ceil(products.length / itemsPerPage)) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
+
+  const totalPages = Math.ceil(products.length / itemsPerPage)
+
   return (
     <>
       <div className="container midsec">
@@ -71,40 +124,88 @@ export default function BestSellerProduct() {
           </div>
           <div className="col-md-9">
             <div className="product-container">
-              {products.map(({ id, defaultImg, hoverImg, productName, price }) => (
-                <div className="product-card" key={id}>
-                  <motion.img
-                    src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
-                    alt={productName}
-                    className="product-image"
-                    onMouseEnter={() => toggleHover(id, true)}
-                    onMouseLeave={() => toggleHover(id, false)}
-                    animate={{ scale: hoveredStates[id] ? 1.05 : 1 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                  />
-                  <div className="product-info">
-                    <p className="product-name">{productName}</p>
-                    <p className="product-price">₹{price}</p>
-                    <div className="buttonPortion">
-                      <button
-                        className=" enquiryBtn"
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent card click
-                          handleEnquiryClick(productName);
-                        }}
-                      >
-                        Enquiry
-                      </button>
-                      <button
-                        className=" addToCartBtn"
-                        onClick={() => handleCategoryClick(productName)}
-                      >
-                        Add to Cart
-                      </button>
+              {currentProducts.map(({ id, defaultImg, hoverImg, productName, price }) => (
+                <Link href={`/product/${id + 1}`} className="text-decoration-none" key={id}>
+                  <div className="product-card" >
+                    <motion.img
+                      src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
+                      alt={productName}
+                      className="product-image"
+                      onMouseEnter={() => toggleHover(id, true)}
+                      onMouseLeave={() => toggleHover(id, false)}
+                      animate={{ scale: hoveredStates[id] ? 1.05 : 1 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    />
+                    <div className="product-info">
+                      <p className="product-name">{productName}</p>
+                      <p className="product-price">₹{price}</p>
+                      <div className="buttonPortion">
+                        <button
+                          className=" enquiryBtn"
+                          onClick={(e) => {
+                            e.stopPropagation(); // Prevent card click
+                            handleEnquiryClick(productName);
+                          }}
+                        >
+                          Enquiry
+                        </button>
+
+
+                        <button
+                          className={`addToCartBtn ${isInCart({ id, productName, price }) ? "btn-danger" : "btn-outline-primary"}`}
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation(); // prevent card click redirect
+                            toggleCart({ id, productName, price });
+                          }}
+                        >
+                          {isInCart({ id, productName, price }) ? "Remove from Cart" : "Add to Cart"}
+                        </button>
+
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
+
+              {/* Pagination */}
+
+              <nav className="pagination-nav mt-5">
+                <ul className="pagination justify-content-center">
+                  <li className={`page-item ${currentPage === 1 && "disabled"}`}>
+                    <button className="page-link" onClick={prevPage}>
+                      Previous
+                    </button>
+                  </li>
+
+                  {[...Array(totalPages)].map((_, index) => (
+                    <li
+                      key={index}
+                      className={`page-item ${currentPage === index + 1 ? "active" : ""
+                        }`}
+                    >
+                      <button
+                        className="page-link"
+                        onClick={() => paginate(index + 1)}
+                      >
+                        {index + 1}
+                      </button>
+                    </li>
+                  ))}
+
+                  <li
+                    className={`page-item ${currentPage === totalPages && "disabled"
+                      }`}
+                  >
+                    <button className="page-link" onClick={nextPage}>
+                      Next
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+
+
+
             </div>
           </div>
         </div>
