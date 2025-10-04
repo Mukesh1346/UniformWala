@@ -9,6 +9,16 @@
     font-weight: 700;
 }
 
+.Bestproduct-description{
+    display: -webkit-box;        /* For flex-like behavior in old WebKit browsers */
+    -webkit-line-clamp: 2;       /* Number of lines to show */
+    -webkit-box-orient: vertical;/* Required for -webkit-line-clamp */
+    overflow: hidden;            /* Hide the overflowing text */
+    text-overflow: ellipsis; 
+    font-size: 12px;   
+    color:gray;
+}
+
 .viewbutton {
     position: relative;
     display: inline-block;
@@ -110,9 +120,10 @@
 }
 
 .Bestproduct-info {
-    padding: 0px;
+    padding: 0 10px;
 }
 .Bestproduct-name {
+    text-align: start;
     font-size: 14px;
     font-weight: bold;
     color: #333;
@@ -142,13 +153,11 @@
 }
 
 .Bestproduct-price {
-    font-size: 18px;
+    text-align: start;
+    font-size: 12px;
     font-weight: bold;
     color: #e74c3c;
 }
-
-
-
 
 .enquiry-modal {
     position: fixed;
@@ -187,20 +196,22 @@
     padding: 8px;
   }
   
-.enquiryBtn{
+.enquiryBestBtn{
     font-size: 13px;
   border: 1px solid brown;
   background: brown;
   color:white;
+  width: 48%;
   padding:10px;
 
 }
 
-.addToCartBtn{
+.addToCartBestBtn{
     font-size: 13px;
     border: 1px solid brown;
     background: brown;
     color:white;
+    width: 48%;
     padding:10px;
 }
 
@@ -221,8 +232,29 @@
     display: flex;
         justify-content: space-around;
   }
-  
+/*   
+  .Bestproduct-container{
+    display:flex !important;
+  } */
 
+@media (max-width: 568px){
+    
+    .Bestproduct-container {
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+        justify-content: center;
+        gap: 15px;
+        padding:  0px !important;
+    }
+
+.addToCartBestBtn{
+    font-size:9px !important;
+}
+.enquiryBestBtn{
+    font-size:9px !important;
+    
+}
+}
 @media (max-width: 768px){
     .Bestproduct-card {
         width: 170px;
@@ -237,10 +269,9 @@
     
     
     
-    .Bestproduct-image{
-        height:200px;
+    .Bestproduct-image {
+        height: 120px;
     }
-
     .sec1img {
         height: 79%;
         width: 55%;
@@ -264,4 +295,8 @@
 .sec2 p{
     text-align: center;
 }
+.enquiryBestBtn{
+    padding:5px;
+}
+
 }

@@ -17,6 +17,14 @@
   text-align: center;
 }
 
+.btn-theme{
+  padding:10px;
+  background-color: brown;
+  font-size: 12px;
+  border: none;
+  color:white;
+
+}
 
 .cartRightSec{
 padding:50px;

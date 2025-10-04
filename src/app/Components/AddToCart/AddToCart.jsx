@@ -136,19 +136,14 @@ export default function AddToCart() {
                             ))}
                           </div>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-4 d-flex align-items-center'>
                           {/* <div className='d-flex justify-content-between mb-3'>
                             <b className='text-warning fs-4'>{product.name}</b>
                           </div> */}
-                          <div className='cartDetails'>
+                          <div className='cartDetails '>
                             <p><b className='me-3'>Price:</b> ${product.price.toFixed(2)}</p>
-                            <p>
-                              <b className='me-3'>Quantity:</b>
-                              <button className='cartBtn' onClick={() => handleQuantityChange(product.id, -1)}>-</button>
-                              {product.quantity}
-                              <button className='cartBtn' onClick={() => handleQuantityChange(product.id, 1)}>+</button>
-                            </p>
-                          </div>
+                          
+                         
 
                           <div className="form-check mt-3">
                             <input
@@ -181,6 +176,7 @@ export default function AddToCart() {
                             </button>
                             <button className='btnLater w-25 '>Save for later</button>
                           </div> */}
+                           </div>
                         </div>
 
 
@@ -193,6 +189,7 @@ export default function AddToCart() {
                           </div>
                         </div>
                       </div>
+                      <hr />
                     </div>
                   ))}
                 </div>
@@ -228,7 +225,7 @@ export default function AddToCart() {
                 <label className='mb-1'>Apply Promo Code</label>
                 <div className='d-flex gap-3'>
                   <input type="text" className="form-control w-75" placeholder="Enter promo code" />
-                  <button className='btn btn-success w-25 p-2'>Apply</button>
+                  <button className=' btn-theme w-25 p-2'>Apply</button>
                 </div>
                 <div className='mt-3'>
                   <button

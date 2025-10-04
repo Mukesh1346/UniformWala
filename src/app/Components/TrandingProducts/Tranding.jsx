@@ -42,11 +42,6 @@ export default function Tranding() {
 
        
     ]
-
-
-
-
-
   return (
    <>
    <div className='trandUniformMainSec'>
