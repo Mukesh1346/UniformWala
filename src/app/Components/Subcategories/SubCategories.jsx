@@ -10,11 +10,17 @@ import pic3 from "@/Assets/Images/receptionist.jpg";
 import pic4 from "@/Assets/Images/Corporate.jpg";
 import pic5 from "@/Assets/Images/security.png";
 import pic6 from "@/Assets/Images/salon.avif";
-
+import { usePathname } from 'next/navigation'
 import "./subcategory.css";
 
 export default function SubCategory() {
+  const pathname = usePathname();
   const router = useRouter();
+
+   const segments = pathname.split("/").filter(Boolean);
+
+    const lastCategory =  segments.length > 0 ? decodeURIComponent(segments[segments.length - 1]): "";
+    //  console.log(lastCategory)
 
   const categories = [
     { id: 1, title: "Men's Wear", images: [pic5, pic6, pic3, pic4] },
@@ -38,7 +44,7 @@ export default function SubCategory() {
   return (
     <>
       <div className="my-4">
-        <h3 className="text-center">SUB-CATEGORIES</h3>
+        <h3 className="text-center ">{lastCategory}</h3>
       </div>
 
       <div className="container my-5">
