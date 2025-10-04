@@ -16,17 +16,17 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "@/Assets/Images/logo.jpg";
 import "./navbar.css";
-import { useAppContext } from "@/context/appContext";
-
+import { useAppContext } from "@/context/AppContext";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
-  const {state} = useAppContext()
+  const { state } = useAppContext();
 
-
-const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
+  // Wishlist count and cart count
+  const totalWishlist = state.wishlist.length;
+  const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
 
   // Detect mobile width
   useEffect(() => {
@@ -50,13 +50,6 @@ const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
   const toggleMobileMenu = () => {
     setMobileMenu(!mobileMenu);
     setActiveDropdown(null);
-  };
-
-  // Handle dropdown item click in mobile
-  const handleDropdownItemClick = () => {
-    if (isMobile) {
-      closeAllMenus();
-    }
   };
 
   const menuItems = [
@@ -155,7 +148,6 @@ const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
           </div>
 
           <div className="TopNavRightSec">
-            {/* <button className="PayOnlineBtn">Pay Online</button> */}
             <ul className="list-unstyled PagesSection d-flex">
               <li className="list-group-item me-3">
                 <Link className="AnchorLink" href="/aboutus">
@@ -203,9 +195,7 @@ const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
           {isMobile && (
             <div className="mobile-menu-header">
               <h3>Menu</h3>
-              <button className="mobile-menu-close" onClick={closeAllMenus}>
-                {/* <IoCloseOutline size={24} /> */}
-              </button>
+              <button className="mobile-menu-close" onClick={closeAllMenus}></button>
             </div>
           )}
           <ul className="list-unstyled d-flex dropdown-section flex-wrap">
@@ -256,9 +246,7 @@ const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
                         <button
                           className="close-dropdown"
                           onClick={() => setActiveDropdown(null)}
-                        >
-                          {/* <IoCloseOutline size={20} /> */}
-                        </button>
+                        ></button>
                       </div>
                       <div className="mobile-dropdown-items">
                         {menu.subMenu.map((sub, subIdx) => (
@@ -281,22 +269,27 @@ const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
         </div>
 
         {/* Right icons */}
-        <div className="BottomNavRight">
+        <div className="BottomNavRight d-flex align-items-center position-relative">
           <IoSearchOutline className="nav-icon me-3" />
-          <Link href="/signup">
-            <IoPersonOutline className="nav-icon me-3" />
+          <Link href="/signup" className="me-3">
+            <IoPersonOutline className="nav-icon" />
           </Link>
-          <Link href="/wishlist">
-            <IoHeartOutline className="nav-icon me-3" />
+          <Link href="/wishlist" className="position-relative me-3">
+            <IoHeartOutline className="nav-icon" />
+            {totalWishlist > 0 && (
+              <sup className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {totalWishlist}
+              </sup>
+            )}
           </Link>
-          <Link href="/cart" className="text-decoration-none position-relative">
-      <IoCartOutline className="nav-icon" />
-      {totalItems > 0 && (
-        <sup className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {totalItems}
-        </sup>
-      )}
-    </Link>
+          <Link href="/cart" className="position-relative">
+            <IoCartOutline className="nav-icon" />
+            {totalItems > 0 && (
+              <sup className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {totalItems}
+              </sup>
+            )}
+          </Link>
         </div>
       </div>
 
@@ -307,12 +300,22 @@ const totalItems = state.cart.reduce((sum,item) => sum + item.quantity,0)
             <IoHomeOutline size={24} />
             <span>Home</span>
           </Link>
-          <Link href="/wishlist" className="mobile-nav-icon" onClick={closeAllMenus}>
+          <Link href="/wishlist" className="mobile-nav-icon position-relative" onClick={closeAllMenus}>
             <IoHeartOutline size={24} />
+            {totalWishlist > 0 && (
+              <sup className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {totalWishlist}
+              </sup>
+            )}
             <span>Wishlist</span>
           </Link>
-          <Link href="/cart" className="mobile-nav-icon" onClick={closeAllMenus}>
+          <Link href="/cart" className="mobile-nav-icon position-relative" onClick={closeAllMenus}>
             <IoCartOutline size={24} />
+            {totalItems > 0 && (
+              <sup className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {totalItems}
+              </sup>
+            )}
             <span>Cart</span>
           </Link>
           <Link href="/products" className="mobile-nav-icon" onClick={closeAllMenus}>

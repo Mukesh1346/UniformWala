@@ -2,7 +2,7 @@ import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./Components/Footer/Footer";
-import { AppProvider } from "@/context/appContext";
+import { AppProvider } from "@/context/AppContext";
 
 
 

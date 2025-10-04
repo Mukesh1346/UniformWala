@@ -13,7 +13,7 @@ import popupImg from '@/Assets/Images/modal.jpg'
 import { FaInstagram, FaFacebookSquare, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { Modal, Button } from "react-bootstrap";
 import { IoLogoYoutube } from "react-icons/io";
-import { useAppContext } from "@/context/appContext";
+import { useAppContext } from "@/context/AppContext";
 
 const ProductDetails = () => {
   const images = [pic1, pic2, pic3, pic4, pic5, pic6];

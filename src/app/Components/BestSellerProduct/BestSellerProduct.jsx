@@ -11,7 +11,7 @@ import pic6 from "@/Assets/Images/salon.avif";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Sidebar from "../Sidebar/Sidebar";
-import { useAppContext } from "@/context/appContext";
+import { useAppContext } from "@/context/AppContext";
 import Link from "next/link";
 
 export default function BestSellerProduct() {

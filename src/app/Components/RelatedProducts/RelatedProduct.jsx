@@ -10,7 +10,7 @@ import pic5 from '@/Assets/Images/security.png'
 import pic6 from '@/Assets/Images/salon.avif'
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
-import { useAppContext } from '@/context/appContext';
+import { useAppContext } from '@/context/AppContext';
 
 
 export default function RelatedProduct() {

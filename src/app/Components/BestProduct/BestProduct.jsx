@@ -10,8 +10,9 @@ import pic5 from "@/Assets/Images/security.png";
 import pic6 from "@/Assets/Images/salon.avif";
 import { useRouter } from "next/navigation";
 import { FaRegEye } from "react-icons/fa";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import Link from "next/link";
-import { useAppContext } from "@/context/appContext";
+import { useAppContext } from "@/context/AppContext";
 
 export default function BestProduct() {
   const router = useRouter();
@@ -23,19 +24,6 @@ export default function BestProduct() {
   const toggleHover = (id, isHovered) => {
     setHoveredStates((prev) => ({ ...prev, [id]: isHovered }));
   };
-
-
-  const addToCart = () => {
-    dispatch({
-      type: ACTIONS.ADD_TO_CART,
-      payload: {
-        id: products.id,
-        name: products.price,
-        quantity: 1,
-      }
-    })
-  }
-
 
   const toggleCart = (product) => {
     dispatch({
@@ -49,10 +37,9 @@ export default function BestProduct() {
       },
     });
   };
+
   const isInCart = (product) =>
     state.cart.some((item) => item.id === product.id && item.size === "M");
-
-
 
   const products = [
     { id: 0, defaultImg: pic3, hoverImg: pic1, productName: "Spa & Tunics", price: 1299 },
@@ -64,11 +51,6 @@ export default function BestProduct() {
     { id: 6, defaultImg: pic3, hoverImg: pic1, productName: "Spa & Salon Pajamas", price: 1230 },
     { id: 7, defaultImg: pic4, hoverImg: pic2, productName: "Salon Apron", price: 1230 }
   ];
-
-
-  // const handleCategoryClick = (productName) => {
-  //   router.push(`/product/${encodeURIComponent(productName)}`);
-  // };
 
   const handleEnquiryClick = (productName) => {
     setEnquiryProduct(productName);
@@ -94,69 +76,89 @@ export default function BestProduct() {
 
       <div className="container">
         <div className="row">
-
           <div className="col-md-12">
             <div className="Bestproduct-container">
-              {products.map(({ id, defaultImg, hoverImg, productName, price }) => (
-                <div className="Bestproduct-card" key={id}>
-                  <Link href={`/product/${id}`} className="text-decoration-none">
-                    <motion.img
-                      src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
-                      alt={productName}
-                      className="Bestproduct-image"
-                      onMouseEnter={() => toggleHover(id, true)}
-                      onMouseLeave={() => toggleHover(id, false)}
-                      animate={{ scale: hoveredStates[id] ? 1.05 : 1 }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                    />
-                  </Link>
+              {products.map(({ id, defaultImg, hoverImg, productName, price }) => {
+                // ✅ Wishlist logic scoped per product
+                const isInWishlist = state.wishlist.some((item) => item.id === id);
 
-                  <div className="Bestproduct-info">
+                const handleWishlistToggle = (e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+
+                  if (isInWishlist) {
+                    dispatch({ type: ACTIONS.REMOVE_FROM_WISHLIST, payload: { id } });
+                  } else {
+                    dispatch({
+                      type: ACTIONS.ADD_TO_WISHLIST,
+                      payload: { id, name: productName, price, image: defaultImg.src },
+                    });
+                  }
+                };
+
+                return (
+                  <div className="Bestproduct-card" key={id}>
                     <Link href={`/product/${id}`} className="text-decoration-none">
-                      <p className="Bestproduct-name">{productName}</p>
+                      <motion.img
+                        src={hoveredStates[id] ? hoverImg.src : defaultImg.src}
+                        alt={productName}
+                        className="Bestproduct-image"
+                        onMouseEnter={() => toggleHover(id, true)}
+                        onMouseLeave={() => toggleHover(id, false)}
+                        animate={{ scale: hoveredStates[id] ? 1.05 : 1 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                      />
                     </Link>
 
-                    <p className="Bestproduct-price">₹ {price}</p>
+                    {/* Wishlist Icon */}
+                    <div className="wishlistIcon" onClick={handleWishlistToggle}>
+                      {isInWishlist ? (
+                        <IoMdHeart className="fs-4 text-danger" />
+                      ) : (
+                        <IoMdHeartEmpty className="fs-4 text-dark" />
+                      )}
+                    </div>
 
-                    <div className="buttonPortion">
-                      <button
-                        className="enquiryBtn"
-                        onClick={(e) => {
-                          e.preventDefault(); // stop link
-                          e.stopPropagation();
-                          handleEnquiryClick(productName); // open popup form
-                        }}
-                      >
-                        Enquiry
-                      </button>
-{/* 
-                      <button
-                        className="addToCartBtn"
-                        onClick={(e) => {
-                          e.preventDefault(); // stop link
-                          e.stopPropagation(); 
-                          addToCart()
-                        }}
-                      >
-                        Add to Cart <FaRegEye className="fs-5 ms-2" />
-                      </button> */}
+                    <div className="Bestproduct-info">
+                      <Link href={`/product/${id}`} className="text-decoration-none">
+                        <p className="Bestproduct-name">{productName}</p>
+                      </Link>
+                      <p className="Bestproduct-price">₹ {price}</p>
 
-                      <button   
-                        onClick={(e) =>{
-                          e.preventDefault();
-                          e.stopPropagation();
-                          toggleCart({id, productName, price});
-                        }}
-                        className={`addToCartBtn ${isInCart({id,productName, price}) ? "btn-danger" : "btn-outline-primary"}`}
-                      >
-                        {isInCart({id, productName, price}) ? "Remove from Cart" : "Add to Cart"}
-                      </button>
+                      <div className="buttonPortion">
+                        <button
+                          className="enquiryBtn"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            handleEnquiryClick(productName);
+                          }}
+                        >
+                          Enquiry
+                        </button>
+
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            toggleCart({ id, productName, price });
+                          }}
+                          className={`addToCartBtn ${
+                            isInCart({ id, productName, price })
+                              ? "btn-danger"
+                              : "btn-outline-primary"
+                          }`}
+                        >
+                          {isInCart({ id, productName, price })
+                            ? "Remove from Cart"
+                            : "Add to Cart"}
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
-
           </div>
         </div>
       </div>

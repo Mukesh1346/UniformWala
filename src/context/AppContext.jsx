@@ -19,4 +19,4 @@ export function AppProvider({ children }) {
 // Custom Hook to use context in any component
 export function useAppContext() {
   return useContext(AppContext);
-}
+} 
