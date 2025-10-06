@@ -47,7 +47,7 @@ export const initialState = {
         const { id, name, price, size, quantity,image } = action.payload;
   
         const existing = state.cart.find(
-          (item) => item.id === id && item.size === size
+          (item) => item.id === id && item.size === size 
         );
   
         if (existing) {

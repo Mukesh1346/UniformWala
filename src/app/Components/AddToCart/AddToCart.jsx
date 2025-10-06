@@ -79,7 +79,7 @@ export default function AddToCart() {
   };
 
   // ✅ Calculate totals
-  const subtotal = cartProducts.reduce((acc, product) => acc + product.price * product.quantity, 0);
+  const subtotal = state.cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
   const tax = subtotal * 0.1; // 10% tax
   const shipping = 145; // fixed
   const total = subtotal + tax + shipping;
@@ -110,7 +110,7 @@ export default function AddToCart() {
                 </div>
 
                 <div className='cartCardSection' style={{ maxHeight: '85vh', overflowY: 'auto' }}>
-                  {cartProducts.map((product, index) => (
+                  {state.cart.map((product, index) => (
                     <div className='cartLeftBottomSec' key={product.id}>
                       <div className='cartBottomTitleSec'>
                         <h3>{product.name}</h3>
@@ -119,7 +119,7 @@ export default function AddToCart() {
                       <div className="row">
                         <div className='col-md-2 text-center'>
                           <p className='mb-3'><b>{product.name?.split(' ')[0]}</b></p>
-                          <Image src={product.image} alt="ProductImg" className='productImage' />
+                          {/* <Image src={product.} alt="ProductImg" className='productImage' /> */}
                         </div>
                         <div className='col-md-4'>
                           <div className='text-center mb-3'>
@@ -242,7 +242,7 @@ export default function AddToCart() {
                 <div className='mt-3'>
                   <button
                     className='ms-2 text-light btn btn-danger w-100'
-                    onClick={() => router.push('/Pages/checkouts')}
+                    onClick={() => router.push('/checkouts')}
                   >
                     Checkout
                   </button>
