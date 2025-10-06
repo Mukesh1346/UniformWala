@@ -1,91 +1,99 @@
 /* ---------- Top Navbar ---------- */
-.TopNavbarContainer .TopNavbar{
+.TopNavbarContainer .TopNavbar {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    padding:0px 20px;
+    padding: 0px 20px;
 }
 
-.nav-icon{
-    color:#264653;
+.nav-icon {
+    color: #264653;
 }
-.TopNavbar{
+
+.TopNavbar {
     color: white;
     background: brown;
 }
-.navtext{
+
+.navtext {
     margin-bottom: 0px;
     margin-top: 2px;
 }
-.TopNavLeftSec{
+
+.TopNavLeftSec {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    font-size:12px;
+    font-size: 12px;
 }
-.TopNavRightSec{
+
+.TopNavRightSec {
     display: flex;
     flex-wrap: wrap;
-    gap:10px;
+    gap: 10px;
     align-items: center;
 }
-.PagesSection{
+
+.PagesSection {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:10px;
-    margin-top:10px;
+    gap: 10px;
+    margin-top: 10px;
 }
-.PayOnlineBtn{
-    padding:10px 15px;
-    margin-right:10px;
-    font-size:12px;
-    border:none;
+
+.PayOnlineBtn {
+    padding: 10px 15px;
+    margin-right: 10px;
+    font-size: 12px;
+    border: none;
     background-color: lightcoral;
-    color:#fff;
-    border-radius:4px;
+    color: #fff;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 /* ---------- Bottom Navbar ---------- */
-.BottomNavbar{
+.BottomNavbar {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    padding:10px 30px;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
+    padding: 10px 30px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
     background-color: #fff;
     position: relative;
 }
 
-.navbar-logo{
-    height:50px;
+.navbar-logo {
+    height: 50px;
     object-fit: contain;
 }
 
 /* Middle Dropdown */
-.BottomNavMid .dropdown-section{
+.BottomNavMid .dropdown-section {
     display: flex;
     align-items: center;
-    margin:0;
+    margin: 0;
     flex-wrap: wrap;
 }
-.BottomNavMid .dropdown{
-    font-size:14px;
-    font-weight:500;
+
+.BottomNavMid .dropdown {
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
     position: relative;
     margin-right: 15px;
     padding: 10px 0;
 }
-.BottomNavMid .dropdown:hover{
-    color:brown;
+
+.BottomNavMid .dropdown:hover {
+    color: brown;
 }
 
-.dropdown-link{
+.dropdown-link {
     text-decoration: none;
     color: brown;
     display: block;
@@ -94,26 +102,27 @@
     text-align: center;
 }
 
-    
-.dropdown-section{
-    gap:30px;
+
+.dropdown-section {
+    gap: 30px;
 }
 
-.AnchorLink{
+.AnchorLink {
     font-size: 14px;
     text-decoration: none;
-    color:white;
+    color: white;
     text-align: center;
 }
 
 /* Right Icons */
-.BottomNavRight .nav-icon{
-    font-size:22px;
-    cursor:pointer;
+.BottomNavRight .nav-icon {
+    font-size: 22px;
+    cursor: pointer;
     transition: color 0.3s ease;
 }
-.BottomNavRight .nav-icon:hover{
-    color:brown;
+
+.BottomNavRight .nav-icon:hover {
+    color: brown;
 }
 
 /* ---------- Dropdown Menu (Desktop) ---------- */
@@ -128,7 +137,7 @@
     padding: 30px;
     border: 1px solid #ddd;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     z-index: 1000;
     overflow-y: auto;
     transition: all 0.3s ease;
@@ -169,9 +178,9 @@
 }
 
 /* ---------- Mobile Styles ---------- */
-.mobileMenuIcon{
-    display:none;
-    cursor:pointer;
+.mobileMenuIcon {
+    display: none;
+    cursor: pointer;
 }
 
 /* Mobile Menu Header */
@@ -230,7 +239,8 @@
     text-align: center;
 }
 
-.back-button, .close-dropdown {
+.back-button,
+.close-dropdown {
     background: none;
     border: none;
     font-size: 16px;
@@ -268,22 +278,23 @@
 
 /* ---------- Mobile Dropdown (Sidebar Style) ---------- */
 @media (max-width: 991px) {
-    .TopNavRightSec{
+    .TopNavRightSec {
         display: none;
-     }
-    .TopNavbar{
+    }
+
+    .TopNavbar {
         display: none;
-     }
-     
-    .mobileMenuIcon{
-        display:block;
+    }
+
+    .mobileMenuIcon {
+        display: block;
         z-index: 1003;
         position: relative;
     }
-    
-    .BottomNavMid{
-        display:none;
-        width:100%;
+
+    .BottomNavMid {
+        display: none;
+        width: 100%;
         position: fixed;
         top: 0;
         left: 0;
@@ -295,27 +306,27 @@
         transform: translateX(-100%);
         transition: transform 0.3s ease;
     }
-    
-    .BottomNavMid.show-mobile-menu{
-        display:block;
+
+    .BottomNavMid.show-mobile-menu {
+        display: block;
         transform: translateX(0);
     }
 
-    .BottomNavMid .dropdown-section{
+    .BottomNavMid .dropdown-section {
         flex-direction: column;
         gap: 0;
         width: 100%;
     }
-    
-    .BottomNavMid .dropdown{
-        margin:0;
+
+    .BottomNavMid .dropdown {
+        margin: 0;
         width: 100%;
         padding: 15px 20px;
         border-bottom: 1px solid #eee;
         font-size: 16px;
         position: relative;
     }
-    
+
     .dropdown-title {
         width: 100%;
         display: flex;
@@ -323,11 +334,11 @@
         align-items: center;
         padding: 10px 0;
     }
-    
-    .BottomNavRight{
-        margin-top:10px;
-        display:flex;
-        gap:15px;
+
+    .BottomNavRight {
+        margin-top: 10px;
+        display: flex;
+        gap: 15px;
     }
 
     /* Hide desktop dropdown on mobile */
@@ -345,13 +356,17 @@
     display: none;
 }
 
-@media (max-width:768px){
-    .TopNavbarContainer{
-         display: none;
+@media (max-width:768px) {
+    .TopNavbarContainer {
+        display: none;
+    }
+    .navbar-logo{
+        width: 75%;
     }
 
     .BottomNavbar {
         display: flex;
+        justify-content: space-between;
     }
 
     .MobileBottomNav {
@@ -366,14 +381,16 @@
 
 
     .mobile-dropdown-header h4 {
-        color:brown;
+        color: brown;
     }
+
     .mobile-menu-header {
         padding: 0px;
         padding-left: 40%;
     }
+
     .mobile-menu-header h3 {
-        color:brown;
+        color: brown;
     }
 }
 
@@ -396,21 +413,25 @@
     }
 }
 
-@media(max-width: 575px){
-    .TopNavbar{
+@media(max-width: 575px) {
+    .TopNavbar {
         flex-direction: column;
         align-items: flex-start;
     }
-    .TopNavLeftSec, .TopNavRightSec{
+
+    .TopNavLeftSec,
+    .TopNavRightSec {
         flex-direction: column;
         align-items: flex-start;
-        gap:5px;
+        gap: 5px;
     }
-    .PagesSection{
+
+    .PagesSection {
         flex-direction: column;
-        gap:5px;
+        gap: 5px;
     }
-     .MobileBottomNav{
+
+    .MobileBottomNav {
         display: flex !important;
         position: fixed;
         bottom: 0;
@@ -420,14 +441,16 @@
         border-top: 1px solid #ddd;
         padding: 10px 0;
         z-index: 999;
-        box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
     }
+
     .MobileBottomNav .d-flex {
         display: flex;
         align-items: center;
         justify-content: space-around;
         width: 100%;
     }
+
     .mobile-nav-icon {
         display: flex;
         flex-direction: column;
@@ -436,16 +459,20 @@
         color: #444;
         text-decoration: none;
     }
+
     .mobile-nav-icon span {
         margin-top: 2px;
     }
+
     .mobile-nav-icon:hover {
         color: lightcoral;
     }
-       .BottomNavbar .BottomNavRight {
+
+    .BottomNavbar .BottomNavRight {
         display: none;
     }
-   .dropdown-menu-grid {
+
+    .dropdown-menu-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -454,6 +481,7 @@
 .BottomNavMid .dropdown {
     position: static !important;
 }
+
 .BottomNavMid .dropdown-menu {
     left: 0 !important;
     right: 0 !important;

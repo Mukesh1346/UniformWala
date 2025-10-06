@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./bestseller.css";
 import pic1 from "@/Assets/Images/salon.avif";
@@ -8,17 +8,21 @@ import pic3 from "@/Assets/Images/receptionist.jpg";
 import pic4 from "@/Assets/Images/Corporate.jpg";
 import pic5 from "@/Assets/Images/security.png";
 import pic6 from "@/Assets/Images/salon.avif";
-import { useRouter } from "next/navigation";
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import Link from "next/link";
 import { useAppContext } from "@/context/AppContext";
 
 export default function BestProduct() {
-  const router = useRouter();
+  const { state, dispatch, ACTIONS } = useAppContext();
   const [hoveredStates, setHoveredStates] = useState({});
   const [showEnquiry, setShowEnquiry] = useState(false);
   const [enquiryProduct, setEnquiryProduct] = useState("");
-  const { state, dispatch, ACTIONS } = useAppContext();
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure dynamic parts render only on client
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleHover = (id, isHovered) => {
     setHoveredStates((prev) => ({ ...prev, [id]: isHovered }));
@@ -47,7 +51,7 @@ export default function BestProduct() {
       hoverImg: pic1,
       productName: "Spa & Tunics",
       description:
-        "this Uniform is perfect fit and  good fabric manufactured by experts/ professionals ",
+        "This uniform is perfect fit and good fabric manufactured by experts/professionals.",
       price: 1299,
     },
     {
@@ -56,7 +60,7 @@ export default function BestProduct() {
       hoverImg: pic2,
       productName: "Spa & Salon Blazers & Jackets",
       description:
-        "this Uniform is perfect fit and  good fabric manufactured by experts/ professionals ",
+        "This uniform is perfect fit and good fabric manufactured by experts/professionals.",
       price: 1230,
     },
     {
@@ -65,7 +69,7 @@ export default function BestProduct() {
       hoverImg: pic3,
       productName: "Spa & Salon Dress",
       description:
-        "this Uniform is perfect fit and  good fabric manufactured by experts/ professionals ",
+        "This uniform is perfect fit and good fabric manufactured by experts/professionals.",
       price: 1230,
     },
     {
@@ -74,7 +78,7 @@ export default function BestProduct() {
       hoverImg: pic4,
       productName: "Spa & Salon Female Kurti",
       description:
-        "this Uniform is perfect fit and  good fabric manufactured by experts/ professionals ",
+        "This uniform is perfect fit and good fabric manufactured by experts/professionals.",
       price: 1230,
     },
     {
@@ -83,7 +87,7 @@ export default function BestProduct() {
       hoverImg: pic5,
       productName: "Spa & Salon Gown",
       description:
-        "this Uniform is perfect fit and  good fabric manufactured by experts/ professionals ",
+        "This uniform is perfect fit and good fabric manufactured by experts/professionals.",
       price: 1230,
     },
     {
@@ -92,7 +96,7 @@ export default function BestProduct() {
       hoverImg: pic6,
       productName: "Hair Cutting Sheet & Cap",
       description:
-        "this Uniform is perfect fit and  good fabric manufactured by experts/ professionals ",
+        "This uniform is perfect fit and good fabric manufactured by experts/professionals.",
       price: 1230,
     },
     {
@@ -101,7 +105,7 @@ export default function BestProduct() {
       hoverImg: pic1,
       productName: "Spa & Salon Pajamas",
       description:
-        "this Uniform is perfect fit and  good fabric manufactured by experts/ professionals ",
+        "This uniform is perfect fit and good fabric manufactured by experts/professionals.",
       price: 1230,
     },
     {
@@ -110,7 +114,7 @@ export default function BestProduct() {
       hoverImg: pic2,
       productName: "Salon Apron",
       description:
-        "this Uniform is perfect fit and  good fabric manufactured by experts/ professionals ",
+        "This uniform is perfect fit and good fabric manufactured by experts/professionals.",
       price: 1230,
     },
   ];
@@ -131,6 +135,9 @@ export default function BestProduct() {
     handleCloseEnquiry();
   };
 
+  // Wait until mounted to render dynamic parts
+  if (!mounted) return null;
+
   return (
     <>
       <div className="container midsec">
@@ -141,9 +148,7 @@ export default function BestProduct() {
         <div className="Bestproduct-container">
           {products.map(
             ({ id, defaultImg, hoverImg, productName, price, description }) => {
-              const isInWishlist = state.wishlist.some(
-                (item) => item.id === id
-              );
+              const isInWishlist = state.wishlist.some((item) => item.id === id);
 
               const handleWishlistToggle = (e) => {
                 e.preventDefault();
@@ -211,16 +216,16 @@ export default function BestProduct() {
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          toggleCart({ id, productName, price });
+                          toggleCart({ id, productName, price , image: defaultImg.src, });
                         }}
                         className={`addToCartBestBtn ${
-                          isInCart({ id, productName, price })
+                          isInCart({ id, productName, price,  image: defaultImg.src,  })
                             ? "btn-danger"
                             : "btn-outline-primary"
                         }`}
                       >
-                        {isInCart({ id, productName, price })
-                          ? "Remove from Cart"
+                        {isInCart({ id, productName, price,image: defaultImg.src })
+                          ? "Remove "
                           : "Add to Cart"}
                       </button>
                     </div>
@@ -234,8 +239,11 @@ export default function BestProduct() {
 
       {/* Enquiry Modal */}
       {showEnquiry && (
-        <div className="enquiry-modal">
-          <div className="enquiry-modal-content">
+        <div className="enquiry-modal" onClick={handleCloseEnquiry}>
+          <div
+            className="enquiry-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <span className="close-btn" onClick={handleCloseEnquiry}>
               &times;
             </span>

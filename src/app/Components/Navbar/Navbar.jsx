@@ -19,22 +19,28 @@ import "./navbar.css";
 import { useAppContext } from "@/context/AppContext";
 
 export default function Navbar() {
+  const [mounted, setMounted] = useState(false); // hydration-safe
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const { state } = useAppContext();
 
-  // Wishlist count and cart count
-  const totalWishlist = state.wishlist.length;
-  const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
-
-  // Detect mobile width
+  // Track client mount
   useEffect(() => {
+    setMounted(true);
+
     const checkMobile = () => setIsMobile(window.innerWidth <= 991);
     checkMobile();
     window.addEventListener("resize", checkMobile);
+
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  if (!mounted) return null; // skip render on SSR
+
+  // Wishlist count and cart count
+  const totalWishlist = state.wishlist.length;
+  const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleDropdownClick = (index) => {
     if (isMobile) {
@@ -201,10 +207,11 @@ export default function Navbar() {
           <ul className="list-unstyled d-flex dropdown-section flex-wrap">
             {menuItems.map((menu, idx) => (
               <li
-                className={`dropdown bottomNavDropdown ${activeDropdown === idx ? "active" : ""}`}
+                className={`dropdown bottomNavDropdown ${
+                  activeDropdown === idx ? "active" : ""
+                }`}
                 key={idx}
               >
-                {/* Mobile click */}
                 <div
                   className="dropdown-title"
                   onClick={() => handleDropdownClick(idx)}
@@ -212,7 +219,6 @@ export default function Navbar() {
                   {menu.title} {isMobile && <span className="dropdown-arrow">▾</span>}
                 </div>
 
-                {/* Desktop hover */}
                 {!isMobile && (
                   <ul className="dropdown-menu">
                     <div className="dropdown-menu-grid">
@@ -231,7 +237,6 @@ export default function Navbar() {
                   </ul>
                 )}
 
-                {/* Mobile dropdown */}
                 {isMobile && activeDropdown === idx && (
                   <div className="mobile-dropdown-overlay">
                     <div className="mobile-dropdown-content">
@@ -300,7 +305,11 @@ export default function Navbar() {
             <IoHomeOutline size={24} />
             <span>Home</span>
           </Link>
-          <Link href="/wishlist" className="mobile-nav-icon position-relative" onClick={closeAllMenus}>
+          <Link
+            href="/wishlist"
+            className="mobile-nav-icon position-relative"
+            onClick={closeAllMenus}
+          >
             <IoHeartOutline size={24} />
             {totalWishlist > 0 && (
               <sup className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -309,7 +318,11 @@ export default function Navbar() {
             )}
             <span>Wishlist</span>
           </Link>
-          <Link href="/cart" className="mobile-nav-icon position-relative" onClick={closeAllMenus}>
+          <Link
+            href="/cart"
+            className="mobile-nav-icon position-relative"
+            onClick={closeAllMenus}
+          >
             <IoCartOutline size={24} />
             {totalItems > 0 && (
               <sup className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

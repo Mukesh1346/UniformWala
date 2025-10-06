@@ -21,7 +21,7 @@ export const initialState = {
   
       // Toggle Cart Item
       case ACTIONS.TOGGLE_CART_ITEM: {
-        const { id, name, price, size, quantity } = action.payload;
+        const { id, name, price, size, quantity, image } = action.payload;
   
         const existing = state.cart.find(
           (item) => item.id === id && item.size === size
@@ -38,13 +38,13 @@ export const initialState = {
         // Add new item if not exists
         return {
           ...state,
-          cart: [...state.cart, { id, name, price, size, quantity }],
+          cart: [...state.cart, { id, name, price, size, quantity,image }],
         };
       }
   
       // Add to cart (standard)
       case ACTIONS.ADD_TO_CART: {
-        const { id, name, price, size, quantity } = action.payload;
+        const { id, name, price, size, quantity,image } = action.payload;
   
         const existing = state.cart.find(
           (item) => item.id === id && item.size === size
@@ -63,7 +63,7 @@ export const initialState = {
   
         return {
           ...state,
-          cart: [...state.cart, { id, name, price, size, quantity }],
+          cart: [...state.cart, { id, name, price, size, quantity,image }],
         };
       }
   
@@ -94,7 +94,10 @@ export const initialState = {
         }
         return {
           ...state,
-          wishlist: [...state.wishlist, action.payload],
+          wishlist: [...state.wishlist,  {
+            ...action.payload,
+            image: action.payload.image?.src || action.payload.image, // ensure URL string
+          },],
         };
   
       case ACTIONS.REMOVE_FROM_WISHLIST:

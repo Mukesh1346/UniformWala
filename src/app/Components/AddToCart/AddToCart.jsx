@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './addtocart.css';
 import { IoMdCart } from "react-icons/io";
 import { GiReturnArrow } from "react-icons/gi";
@@ -9,6 +9,8 @@ import { FaAmazonPay } from "react-icons/fa";
 import { MdDeleteSweep } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 import pic1 from '@/Assets/Images/dress.webp';
+import { useAppContext } from '@/context/AppContext';
+
 
 // ✅ Static product data
 const cartProductsData = [
@@ -42,7 +44,15 @@ export default function AddToCart() {
   const [selectedOption, setSelectedOption] = useState('ship');
   const router = useRouter();
   const [quantities, setQuantities] = useState({});
+  const {state} =  useAppContext()
 
+
+
+  useEffect(() => {
+    console.log("Cart updated:", state.cart);
+  }, [state.cart]);
+  
+ 
   const handleChange = (id, value) => {
     setQuantities((prev) => ({ ...prev, [id]: value }));
   };
