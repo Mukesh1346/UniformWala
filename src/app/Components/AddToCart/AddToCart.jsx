@@ -47,7 +47,9 @@ export default function AddToCart() {
     setQuantities((prev) => ({ ...prev, [id]: value }));
   };
 
-
+  const handleDirect = ()=>{
+       router.push("/login")
+  }
 
   // ✅ Remove product from cart
   const handleRemove = (id) => {
@@ -85,7 +87,7 @@ export default function AddToCart() {
                     <p>Register now & get FREE standard shipping. US only</p>
                     <div className='d-flex'>
                       <button className='RegisterBtn w-50'>Register</button>
-                      <button className='RegisterBtn w-50'>Login</button>
+                      <button className='RegisterBtn w-50' onClick={handleDirect}>Login</button>
                     </div>
                   </div>
                 </div>

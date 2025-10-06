@@ -60,6 +60,9 @@
     outline: none;
     transition: all 0.3s;
   }
+  .signup-form-section{
+    text-align: center;
+  }
   
   .auth-input:focus {
     border-color: brown;
