@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from 'react';
 import './addtocart.css';
 import { IoMdCart } from "react-icons/io";
@@ -10,7 +10,6 @@ import { MdDeleteSweep } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 import pic1 from '@/Assets/Images/dress.webp';
 import { useAppContext } from '@/context/AppContext';
-
 
 // ✅ Static product data
 const cartProductsData = [
@@ -35,39 +34,38 @@ const size = [
   { id: 5, label: "XL" },
   { id: 6, label: "2XL" },
   { id: 7, label: "3XL" },
-]
-
-
+];
 
 export default function AddToCart() {
   const [cartProducts, setCartProducts] = useState(cartProductsData);
   const [selectedOption, setSelectedOption] = useState('ship');
   const router = useRouter();
   const [quantities, setQuantities] = useState({});
-  const {state} =  useAppContext()
+  const { state } = useAppContext();
 
-
+  // ✅ Track client-side mount to fix hydration error
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     console.log("Cart updated:", state.cart);
   }, [state.cart]);
-  
- 
+
   const handleChange = (id, value) => {
     setQuantities((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleDirect = ()=>{
-       router.push("/login")
-  }
+  const handleDirect = () => {
+    router.push("/login");
+  };
 
-  // ✅ Remove product from cart
   const handleRemove = (id) => {
     const updatedCart = cartProducts.filter(product => product.id !== id);
     setCartProducts(updatedCart);
   };
 
-  // ✅ Update quantity for specific product
   const handleQuantityChange = (id, delta) => {
     setCartProducts(prev =>
       prev.map(product =>
@@ -78,11 +76,16 @@ export default function AddToCart() {
     );
   };
 
-  // ✅ Calculate totals
-  const subtotal = state.cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
-  const tax = subtotal * 0.1; // 10% tax
-  const shipping = 145; // fixed
+  // ✅ Totals calculation (only after client-side mount)
+  const subtotal = isMounted
+    ? state.cart.reduce((acc, product) => acc + product.price * product.quantity, 0)
+    : 0;
+  const tax = subtotal * 0.1;
+  const shipping = 145;
   const total = subtotal + tax + shipping;
+
+  // ✅ Prevent rendering on server to avoid hydration mismatch
+  if (!isMounted) return null;
 
   return (
     <section>
@@ -119,7 +122,7 @@ export default function AddToCart() {
                       <div className="row">
                         <div className='col-md-2 text-center'>
                           <p className='mb-3'><b>{product.name?.split(' ')[0]}</b></p>
-                          {/* <Image src={product.} alt="ProductImg" className='productImage' /> */}
+                          <Image src={pic1} alt="ProductImg" className='productImage' />
                         </div>
                         <div className='col-md-4'>
                           <div className='text-center mb-3'>
@@ -132,10 +135,7 @@ export default function AddToCart() {
                                 className="d-flex flex-column align-items-center"
                                 style={{ width: "60px" }}
                               >
-                                {/* Label */}
                                 <label className="fw-bold mb-1">{item.label}</label>
-
-                                {/* Input */}
                                 <input
                                   type="number"
                                   min="0"
@@ -149,51 +149,37 @@ export default function AddToCart() {
                           </div>
                         </div>
                         <div className='col-md-4 d-flex align-items-center'>
-                          {/* <div className='d-flex justify-content-between mb-3'>
-                            <b className='text-warning fs-4'>{product.name}</b>
-                          </div> */}
                           <div className='cartDetails '>
                             <p><b className='me-3'>Price:</b> ${product.price.toFixed(2)}</p>
-                          
-                         
-
-                          <div className="form-check mt-3">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              name={`radioDefault${index}`}
-                              id={`ship${index}`}
-                              value="ship"
-                              checked={selectedOption === 'ship'}
-                              onChange={(e) => setSelectedOption(e.target.value)}
-                            />
-                            <label className="form-check-label" htmlFor={`ship${index}`}>Ship to Address</label>
+                            <div className="form-check mt-3">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name={`radioDefault${index}`}
+                                id={`ship${index}`}
+                                value="ship"
+                                checked={selectedOption === 'ship'}
+                                onChange={(e) => setSelectedOption(e.target.value)}
+                              />
+                              <label className="form-check-label" htmlFor={`ship${index}`}>Ship to Address</label>
+                            </div>
+                            <div className="form-check">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name={`radioDefault${index}`}
+                                id={`pickup${index}`}
+                                value="pickup"
+                                checked={selectedOption === 'pickup'}
+                                onChange={(e) => setSelectedOption(e.target.value)}
+                              />
+                              <label className="form-check-label" htmlFor={`pickup${index}`}>Pick up in Store</label>
+                            </div>
                           </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              name={`radioDefault${index}`}
-                              id={`pickup${index}`}
-                              value="pickup"
-                              checked={selectedOption === 'pickup'}
-                              onChange={(e) => setSelectedOption(e.target.value)}
-                            />
-                            <label className="form-check-label" htmlFor={`pickup${index}`}>Pick up in Store</label>
-                          </div>
-
-                          {/* <div className='mt-3 mb-3'>
-                            <button className=' btnRemove w-25 me-2' onClick={() => handleRemove(product.id)}>
-                              <MdDeleteSweep className='fs-3' /> Remove
-                            </button>
-                            <button className='btnLater w-25 '>Save for later</button>
-                          </div> */}
-                           </div>
                         </div>
 
-
                         <div className='col-md-2'>
-                        <div className='mt-3 mb-3 buttonSection'>
+                          <div className='mt-3 mb-3 buttonSection'>
                             <button className=' btnRemove  me-2' onClick={() => handleRemove(product.id)}>
                               <MdDeleteSweep className='fs-3' /> Remove
                             </button>
@@ -259,15 +245,6 @@ export default function AddToCart() {
     </section>
   );
 }
-
-
-
-
-
-
-
-
-
 
 
 

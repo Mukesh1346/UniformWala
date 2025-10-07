@@ -4,7 +4,7 @@
 
 .UniformCard{
     border:1px solid gray;
-    height:310px;
+    height:350px;
     padding:5px;
 }
 .tradingHeading{
@@ -17,6 +17,14 @@
     width:180px;
 }
 
+.addtoCartTrandingBtn{
+  padding:10px;
+  border:none;
+  background-color: brown;
+  color:white;
+  font-size: 12px;
+  width: 48%;
+}
 .detailSec h3{
    
     text-align: center;
@@ -79,6 +87,114 @@
     text-align: center;
     justify-content: center;
 }
+
+
+
+/* ===========================
+   Enquiry Modal Form Styles
+=========================== */
+
+.enquiry-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .enquiry-modal.active {
+    display: flex; /* Show when active */
+  }
+  
+  .enquiry-modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: popupFade 0.3s ease-out;
+  }
+  
+  @keyframes popupFade {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .enquiry-modal-content h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .enquiry-form input,
+  .enquiry-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+  
+  .enquiry-form input:focus,
+  .enquiry-form textarea:focus {
+    border-color: brown;
+    outline: none;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.3);
+  }
+  
+  .enquiry-form button {
+    width: 100%;
+    background-color:brown;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .enquiry-form button:hover {
+    background-color: #c2185b;
+  }
+  
+  .modal-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .modal-close-btn:hover {
+    color: #e91e63;
+  }
+  
+
+
+
 
 @media (max-width: 768px){
     .trandUniformMainSec {
